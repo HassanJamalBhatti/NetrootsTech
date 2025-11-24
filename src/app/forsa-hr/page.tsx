@@ -1,0 +1,188 @@
+'use client';
+import React from "react";
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import ContactUs from '../components/ContactUs';
+import { useEffect, useState } from 'react';
+import Image from "next/image";
+
+const modules = [
+  { title: "Payroll Management", description: "Payroll software allows you to manage the basic payroll requirements and other accounting benefits for Payroll." },
+  { title: "Exit Management", description: "Exit Management module helps in defining the workflow related to the employee resignation and exit process." },
+  { title: "Performance Evaluation", description: "Performance Evaluation module is designed for performance appraisal and competency-based evaluation." },
+  { title: "Training & Development", description: "Training & Development module helps in planning and organizing employee learning and growth programs." },
+  { title: "Document Management", description: "Document Management module allows you to store and retrieve employee-related documents quickly and efficiently." },
+  { title: "Recruitment Management", description: "Recruitment Management module helps you manage your hiring process and job applications effectively." },
+  { title: "Employee Database", description: "Employee Database module enables you to manage and maintain employee information efficiently with ForsaHR." },
+  { title: "Attendance Management", description: "Attendance Management module tracks employee attendance and leaves through an automated system." },
+];
+
+export default function ForsaHR() {
+  const [loadingPage, setLoadingPage] = useState(true);
+
+  // Simulate page loading
+  useEffect(() => {
+    const timer = setTimeout(() => setLoadingPage(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loadingPage) {
+    return (
+      <div className="fixed inset-0 flex flex-col justify-center items-center bg-white z-50" aria-busy="true">
+       <div className="relative w-32 h-32 mb-8">
+          <Image src="/logo.png" alt="Logo" fill className="object-contain" />
+        </div>
+        <div className="dots-loader flex space-x-2">
+          <span className="dot"></span>
+          <span className="dot"></span>
+          <span className="dot"></span>
+        </div>
+        <style jsx>{`
+          .dot {
+            width: 1.5rem;
+            height: 1.5rem;
+            background-color: #3498db;
+            border-radius: 50%;
+            display: inline-block;
+            animation: blink 1.5s infinite;
+          }
+          .dot:nth-child(1) { animation-delay: 0s; }
+          .dot:nth-child(2) { animation-delay: 0.3s; }
+          .dot:nth-child(3) { animation-delay: 0.6s; }
+          @keyframes blink {
+            0%, 20% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+          }
+        `}</style>
+      </div>
+    );
+  }
+
+  return (
+    <div className="font-sans">
+      <Navbar/>
+      {/* Hero Section with texture and animation */}
+      <section
+        className="relative text-white mt-20 text-center py-20 px-4 overflow-hidden"
+        style={{
+          backgroundImage: `url('https://www.transparenttextures.com/patterns/diamond-upholstery.png'), linear-gradient(to right, #1e3a8a, #2563eb)`,
+          backgroundBlendMode: "overlay",
+          backgroundSize: "cover",
+          backgroundRepeat: "repeat",
+        }}
+      >
+        <div className="relative z-10 transform hover:scale-[1.02] transition-transform duration-700 ease-out">
+          <h1 className="text-5xl font-bold mb-4 tracking-wide">FORSA HR</h1>
+          <p className="text-lg mb-8 max-w-2xl mx-auto opacity-90">
+            Why manage HR manually? Forsa HR automates HR and payroll for seamless efficiency.
+          </p>
+          <button onClick={() => window.location.replace("/contectus")} className="bg-white text-blue-800 font-semibold px-6 py-3 rounded-md hover:scale-105 hover:bg-gray-100 transition-all duration-300 shadow-md">
+            Schedule a Free Consultation
+          </button>
+        </div>
+
+        {/* Optional gradient overlay for extra texture depth */}
+        <div className="absolute inset-0 bg-blue-900/40 mix-blend-multiply"></div>
+      </section>
+
+      {/* Content Section 1 */}
+      <section className="py-16 px-6 md:px-20 flex flex-col md:flex-row items-center gap-10">
+        <div className="md:w-1/2 transform hover:-translate-y-1 transition-transform duration-500">
+          <h2 className="text-2xl font-semibold text-blue-800 mb-4">
+            Forsa HR: The Smart Solution for Efficient HR and Payroll Management
+          </h2>
+          <p className="text-gray-700 leading-relaxed mb-4">
+            Are you looking for an efficient software to reduce the time and energy consumed by the HR team 
+            for administrative tasks? Forsa HR is your ultimate solution. It helps automate all HR and payroll 
+            processes — from employee onboarding to payroll disbursement.
+          </p>
+          <p className="text-gray-700 leading-relaxed">
+            With Forsa HR, you get smart insights, compliance assurance, and a smoother workflow 
+            that saves time and cost.
+          </p>
+        </div>
+
+        <div className="md:w-1/2">
+          <div className="relative w-full h-80">
+            <Image
+              src="/products/HR1.jpg"
+              alt="HR illustration"
+              fill
+              className="rounded-md shadow-lg object-cover transform hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Content Section 2 */}
+      <section className="py-16 px-6 md:px-20 flex flex-col md:flex-row-reverse items-center gap-10 bg-gray-50">
+        <div className="md:w-1/2 transform hover:-translate-y-1 transition-transform duration-500">
+          <h2 className="text-2xl font-semibold text-blue-800 mb-4">
+            Forsa HR: Let Your HR Team Focus on What Truly Matters
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            Are you spending too much time on manual HR processes? Forsa HR automates everything 
+            — payroll, attendance, and performance management — so your HR team can focus on 
+            building culture and growing people, not handling spreadsheets.
+          </p>
+        </div>
+
+        <div className="md:w-1/2">
+          <div className="relative w-full h-80">
+            <Image
+              src="/products/HR2.jpg"
+              alt="Team collaboration"
+              fill
+              className="rounded-md shadow-lg object-cover transform hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Modules Section */}
+      <section className="relative min-h-screen bg-white px-6 py-16 md:px-20">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-12">
+          {/* Left (Sticky + Vertically Centered) Section */}
+          <div className="md:w-1/2 md:sticky md:top-0 flex items-center justify-center min-h-screen relative 
+                          bg-gradient-to-br from-blue-900 via-blue-800 to-white 
+                          bg-[url('https://www.transparenttextures.com/patterns/diamond-upholstery.png')] bg-repeat bg-opacity-10">
+            <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-gray-600 to-gray-300"></div>
+
+            <div className="text-left relative z-10">
+              <h2 className="text-3xl ml-10 mr-10 md:text-4xl font-extrabold text-gray-900 leading-tight">
+                Optimize Your HR Operations with <br />
+                <span className="text-blue-600 italic underline">Forsa HR Modules</span>
+              </h2>
+            </div>
+          </div>
+
+          {/* Right (Scrollable) Section */}
+          <div className="md:w-1/2 max-h-[80vh] pt-5 pb-5 min-h-screen overflow-y-auto pr-4 space-y-8 custom-scroll">
+            {modules.map((item, index) => (
+              <div
+                key={index}
+                className="flex items-start space-x-4 transform hover:translate-x-2 transition-transform duration-300"
+              >
+                {/* Radio-style bullet */}
+                <div className="relative mt-2 w-4 h-4 rounded-full border-2 border-blue-600 flex items-center justify-center flex-shrink-0">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                </div>
+
+                <div className="pl-1">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-1">{item.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ContactUs */}
+      <ContactUs/>
+      {/* Footer */}
+      <Footer/>
+    </div>
+  );
+}
