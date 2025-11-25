@@ -2,85 +2,84 @@
 
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/effect-coverflow";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay, EffectCoverflow } from "swiper/modules";
 import Image from "next/image";
 import Link from "next/link";
-
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 
 const testimonials = [
   {
     rating: 4.5,
-    title: "A Wonderful Experience!",
-    text: "We acquired an HR system from NetRoots, and have found it to exceed expectations. NetRoots was able to customize our software down to a T, creating for us a solution that addressed ",
-    author: "Cornerstone School",
-    img: "/logo.png",
+    title: "Best Decision Ever",
+    text: "Netroots Technologies provided us with the best ERP solution to manage our business. We highly recommend their ERP software. It is one of the most customized ERP systems available. The platform is intuitive and efficient. It has truly transformed the way we operate.",
+    author: "Hanif Jewelers",
+    img: "/clients/hanif.png",
     link: "/testimonials/1",
   },
   {
     rating: 4.9,
     title: "Amazing Support!",
-    text: "The best thing about the company was that their team worked closely with us to figure out what we needed and then made us exactly that. Truly personalized support every step of the",
-    author: "Greenfield Academy",
-    img: "/logo.png",
+    text: "Dining at American Greatest Restaurant is an unforgettable experience! From the first bite to the last, every dish bursts with flavor. The ambiance is warm and inviting, perfect for family and friends. The staff is attentive and truly makes you feel valued. We highly recommend it to anyone seeking top-notch cuisine and service.",
+    author: "American Greatest",
+    img: "/clients/AGW.png",
     link: "/testimonials/2",
   },
   {
-    rating: 3.5,
-    title: "Exceeded Expectations!",
-    text: "We acquired an HR system from NetRoots, and have found it to exceed expectations. Amazing support and customization! Their team was proactive in solving all our concerns quickly.",
-    author: "Sunrise Institute",
-    img: "/logo.png",
+    rating: 4.5,
+    title: "Extremely Recommended",
+    text: "We wanted to expand our business and wanted to outshine our standing in the market, thus we chose Netroots Technologies. Well, the results were very interesting and surprising. We are glad that we landed on Netroots Technologies page and have attained such Digital Marketing Services, which include Social Media Marketing.",
+    author: "California Pizza",
+    img: "/clients/CaliforniaPizza.png",
     link: "/testimonials/3",
   },
   {
     rating: 4.1,
-    title: "Highly Recommend!",
-    text: "NetRoots delivered a solution that perfectly fit our HR needs. The software is intuitive, and the team provided exceptional guidance throughout the process. Couldn't be happier.",
-    author: "Blue Valley School",
-    img: "/logo.png",
+    title: "Business Friendly",
+    text: "As an Educational Institute we were so glad to attain the product Educatum from Netroots Technologies. This is very helpful in managing the data. Also in an affordable package, they rendered us with Social Media Marketing Services along with SEO Services. Netroots Technologies not only made us outshine the market but in fact, they improved our Digital worth.",
+    author: "IVY",
+    img: "/clients/IVYA.png",
     link: "/testimonials/4",
   },
   {
     rating: 4.5,
-    title: "Professional & Efficient",
-    text: "Working with NetRoots was a seamless experience. They provided an end-to-end solution for our HR system needs, always responsive, always helpful. Highly professional.",
-    author: "Riverdale College",
-    img: "/logo.png",
+    title: "Best People for me!",
+    text: "Flour mills in Pakistan mostly operate in the traditional way, using manual records. We are glad that we made the switch. It was becoming difficult to keep record of and manually manage production and tracking, and our ERP solved those problems. Our ERP also includes HR functions such as payroll and employee asset management. This makes keeping account of our finances much easier!",
+    author: "Sufi Flour Mills",
+    img: "/clients/SufiAtaa.png",
     link: "/testimonials/5",
   },
 ];
 
+// Function to render star ratings
 const renderStars = (rating: number) => {
   const stars = [];
   for (let i = 1; i <= 5; i++) {
-    if (rating >= i) {
-      stars.push(<FaStar key={i} className="text-yellow-400" />);
-    } else if (rating >= i - 0.5) {
+    if (rating >= i) stars.push(<FaStar key={i} className="text-yellow-400" />);
+    else if (rating >= i - 0.5)
       stars.push(<FaStarHalfAlt key={i} className="text-yellow-400" />);
-    } else {
-      stars.push(<FaRegStar key={i} className="text-gray-300" />);
-    }
+    else stars.push(<FaRegStar key={i} className="text-gray-300" />);
   }
   return stars;
 };
 
-
 export default function TestimonialCarousel() {
   return (
-    <div className="py-16 bg-[#f9f9f9]">
+    <section className="py-16 bg-[#f9f9f9]">
+      {/* Header */}
       <div className="text-center mb-12">
         <p className="text-[#00C4B4] font-semibold mb-2">
           {"//"} <span className="text-[#123456]">Testimonials</span>
         </p>
         <h2 className="text-3xl md:text-4xl font-bold">
-          Testimonials:{" "}
-          <span className="text-[#0070F3]">Trusted by Our Clients</span>
+          Trusted by Our Clients
+          <span className="text-[#0070F3]"> Worldwide</span>
         </h2>
       </div>
 
+      {/* Swiper Carousel */}
       <Swiper
         modules={[Pagination, Autoplay, EffectCoverflow]}
         slidesPerView={3}
@@ -89,28 +88,29 @@ export default function TestimonialCarousel() {
         effect="coverflow"
         coverflowEffect={{
           rotate: 30,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
           slideShadows: false,
         }}
         autoplay={{ delay: 4000, disableOnInteraction: false }}
+        loop={false} // Disable loop to ensure button clicks work
         breakpoints={{
           0: { slidesPerView: 1 },
+          640: { slidesPerView: 1.5 },
           768: { slidesPerView: 2 },
           1024: { slidesPerView: 3 },
         }}
-        className="px-4 md:px-10 bg-[#f9f9f9]"
+        className="px-4 md:px-10"
       >
         {testimonials.map((t, i) => (
           <SwiperSlide key={i}>
-            <div className="shadow-lg rounded-xl p-6 bg-[#f9f9f9] border border-gray-200 h-full flex flex-col justify-between">
+            <div className="shadow-lg rounded-xl p-6 bg-white border border-gray-200 h-full flex flex-col justify-between hover:shadow-2xl transition-shadow duration-300">
               
-              {/* ⭐ Stars */}
+              {/* Stars */}
               <div className="flex items-center mb-3 text-xl">
-                <div className="flex gap-1 text-yellow-400">
-                  {renderStars(t.rating)}
-                </div>
-                <span className="ml-2 text-black font-semibold">
-                  {t.rating}
-                </span>
+                <div className="flex gap-1">{renderStars(t.rating)}</div>
+                <span className="ml-2 text-black font-semibold">{t.rating}</span>
               </div>
 
               {/* Title */}
@@ -126,9 +126,9 @@ export default function TestimonialCarousel() {
                 <div className="flex items-center gap-3">
                   <Image
                     src={t.img}
-                    width={40}
-                    height={40}
-                    alt="logo"
+                    width={50}
+                    height={50}
+                    alt={`${t.author} logo`}
                     className="rounded-full"
                   />
                   <p className="font-medium text-gray-800">{t.author}</p>
@@ -145,6 +145,6 @@ export default function TestimonialCarousel() {
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
+    </section>
   );
 }

@@ -10,7 +10,7 @@ export default function WhyChooseUs() {
     <section
       className={`bg-black text-white py-12 sm:py-16 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-32 2xl:px-48 ${inter.className}`}
     >
-      <div className="max-w-7xl mx-auto relative">
+      <div className="max-w-8xl mx-auto relative">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-10 sm:mb-12 gap-6">
           <div>
