@@ -12,7 +12,7 @@ export default function Footer() {
     <footer className={`bg-black  text-white pt-5 ${inter.className}`}>
 
       {/* -------------------- Desktop Footer -------------------- */}
-      <div className="hidden sm:flex py-10 px-6 md:px-20 max-w-7xl mx-auto flex-col md:flex-row justify-between gap-10">
+      <div className="hidden sm:flex py-10 px-6 md:px-20 max-w-8xl mx-auto flex-col md:flex-row justify-between gap-10">
         
         {/* Logo */}
         <div className="flex justify-center md:justify-start mb-6 md:mb-0">

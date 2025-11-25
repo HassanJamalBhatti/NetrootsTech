@@ -12,7 +12,7 @@ import WhyChooseUs from "./components/WhyChooseUs";
 import ClientsSection from "./components/ClientsSection";
 import WorkPage from './Work/page';
 import Testimonialspage from './Testimonials/page';
-import AdvertisementModal from "./components/AdvertisementModal";
+// import AdvertisementModal from "./components/AdvertisementModal";
 import Image from "next/image";
 
 const inter = Inter({ subsets: ['latin'] });
@@ -220,7 +220,7 @@ export default function Home() {
           <ContactUs />
         </SectionWrapper>
       </main>
-      <AdvertisementModal />
+      {/* <AdvertisementModal /> */}
       <Footer />
     </div>
   );

@@ -7,26 +7,30 @@ const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700"] }
 
 export default function WhyChooseUs() {
   return (
-    <section className={`bg-black text-white py-16 px-6 md:px-16 ${inter.className}`}>
-      <div className="max-w-7xl mx-auto md:pl-8 relative">
+    <section
+      className={`bg-black text-white py-12 sm:py-16 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-32 2xl:px-48 ${inter.className}`}
+    >
+      <div className="max-w-7xl mx-auto relative">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-12 gap-6">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-10 sm:mb-12 gap-6">
           <div>
-            <p className="text-teal-500 font-medium mb-2">{'//'} <span className="text-white">Why Choose Us</span></p>
-            <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
+            <p className="text-teal-500 font-medium mb-2 text-sm sm:text-base">
+              {"//"} <span className="text-white">Why Choose Us</span>
+            </p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold leading-tight">
               Why Trust Us for <br />
               Your IT Needs?
             </h2>
           </div>
-          <button className="bg-blue-600 text-white px-6 py-3 rounded-full text-sm sm:text-base font-medium hover:bg-blue-700 transition">
+          <button className="bg-blue-600 text-white px-5 py-3 rounded-full text-sm sm:text-base md:text-lg font-medium hover:bg-blue-700 transition">
             Get A Quote
           </button>
         </div>
 
         {/* Main Grid */}
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left: Image */}
-          <div className="relative rounded-xl overflow-hidden w-full h-64 sm:h-80 md:h-full shadow-lg">
+          <div className="relative rounded-xl overflow-hidden w-full h-56 sm:h-72 md:h-80 lg:h-[420px] xl:h-[450px] 2xl:h-[520px] shadow-lg">
             <Image
               src="/team-meeting.jpg"
               alt="Team high five"
@@ -38,7 +42,7 @@ export default function WhyChooseUs() {
 
           {/* Right: Features */}
           <div className="space-y-10">
-            <div className="grid sm:grid-cols-2 gap-8">
+            <div className="grid sm:grid-cols-2 gap-8 lg:gap-10">
               <Feature
                 icon={<FaDollarSign />}
                 title="Affordable Price"
@@ -78,10 +82,14 @@ function Feature({
   description: string;
 }) {
   return (
-    <div className="flex flex-col md:ml-6 items-start space-y-3">
-      <div className="text-4xl sm:text-5xl ">{icon}</div>
-      <h3 className="font-semibold text-lg sm:text-xl">{title}</h3>
-      <p className="text-gray-400 text-sm sm:text-base">{description}</p>
+    <div className="flex flex-col items-start space-y-3">
+      <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">{icon}</div>
+      <h3 className="font-semibold text-base sm:text-lg md:text-xl lg:text-2xl">
+        {title}
+      </h3>
+      <p className="text-gray-400 text-sm sm:text-base lg:text-lg">
+        {description}
+      </p>
     </div>
   );
 }
