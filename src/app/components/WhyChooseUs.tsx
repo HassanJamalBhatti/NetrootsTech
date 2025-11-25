@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700"] }
 export default function WhyChooseUs() {
   return (
     <section className={`bg-black text-white py-16 px-6 md:px-16 ${inter.className}`}>
-      <div className="max-w-7xl mx-auto md:pl-8 md:mr-5 relative">
+      <div className="max-w-7xl mx-auto md:pl-8 relative">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-12 gap-6">
           <div>

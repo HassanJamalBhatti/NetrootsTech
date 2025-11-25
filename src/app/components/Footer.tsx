@@ -9,10 +9,10 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Footer() {
   return (
-    <footer className={`bg-black text-white pt-5 ${inter.className}`}>
+    <footer className={`bg-black  text-white pt-5 ${inter.className}`}>
 
       {/* -------------------- Desktop Footer -------------------- */}
-      <div className="hidden sm:flex py-10 px-6 md:px-20 max-w-8xl mx-auto flex-col md:flex-row justify-between gap-10">
+      <div className="hidden sm:flex py-10 px-6 md:px-20 max-w-7xl mx-auto flex-col md:flex-row justify-between gap-10">
         
         {/* Logo */}
         <div className="flex justify-center md:justify-start mb-6 md:mb-0">
@@ -86,81 +86,81 @@ export default function Footer() {
       </div>
 
       {/* -------------------- Mobile Footer -------------------- */}
-<div className="sm:hidden px-6 py-8 bg-black text-white">
+      <div className="sm:hidden px-6 py-8 bg-black text-white">
 
-  {/* Logo */}
-  <div className="flex justify-center mb-6">
-    <Image
-      src="/logo2.png"
-      alt="Netroots Technologies"
-      width={180}
-      height={40}
-      className="object-contain"
-    />
-  </div>
+        {/* Logo */}
+        <div className="flex justify-center mb-6">
+          <Image
+            src="/logo2.png"
+            alt="Netroots Technologies"
+            width={180}
+            height={40}
+            className="object-contain"
+          />
+        </div>
 
-  {/* Solutions and Company side by side */}
-  <div className="flex gap-4">
+        {/* Solutions and Company side by side */}
+        <div className="flex gap-4">
 
-    {/* Solutions - Left */}
-    <div className="flex-1 bg-gray-900 rounded-xl p-4 shadow-inner">
-      <h3 className="font-bold mb-3 text-lg text-left text-white">Solutions</h3>
-      <ul className="space-y-2 text-gray-300 text-sm text-left">
-        <li><Link href="/solutions/seo" className="hover:text-blue-400 transition-colors font-medium">Rank #1 on Google</Link></li>
-        <li><Link href="/solutions/web-design" className="hover:text-blue-400 transition-colors font-medium">Website Design & Development</Link></li>
-        <li><Link href="/solutions/design-alchemy" className="hover:text-blue-400 transition-colors font-medium">Design Alchemy</Link></li>
-        <li><Link href="/solutions/community-management" className="hover:text-blue-400 transition-colors font-medium">Community Management</Link></li>
-        <li><Link href="/solutions/performance-marketing" className="hover:text-blue-400 transition-colors font-medium">Performance Marketing</Link></li>
-        <li><Link href="/solutions/brand-strategy" className="hover:text-blue-400 transition-colors font-medium">Brand Strategy Development</Link></li>
-        <li><Link href="/solutions/ecommerce" className="hover:text-blue-400 transition-colors font-medium">E-commerce Solutions</Link></li>
-        <li><Link href="/solutions/content-marketing" className="hover:text-blue-400 transition-colors font-medium">Content Marketing</Link></li>
-      </ul>
-    </div>
+          {/* Solutions - Left */}
+          <div className="flex-1 bg-gray-900 rounded-xl p-4 shadow-inner">
+            <h3 className="font-bold mb-3 text-lg text-left text-white">Solutions</h3>
+            <ul className="space-y-2 text-gray-300 text-sm text-left">
+              <li><Link href="/solutions/seo" className="hover:text-blue-400 transition-colors font-medium">Rank #1 on Google</Link></li>
+              <li><Link href="/solutions/web-design" className="hover:text-blue-400 transition-colors font-medium">Website Design & Development</Link></li>
+              <li><Link href="/solutions/design-alchemy" className="hover:text-blue-400 transition-colors font-medium">Design Alchemy</Link></li>
+              <li><Link href="/solutions/community-management" className="hover:text-blue-400 transition-colors font-medium">Community Management</Link></li>
+              <li><Link href="/solutions/performance-marketing" className="hover:text-blue-400 transition-colors font-medium">Performance Marketing</Link></li>
+              <li><Link href="/solutions/brand-strategy" className="hover:text-blue-400 transition-colors font-medium">Brand Strategy Development</Link></li>
+              <li><Link href="/solutions/ecommerce" className="hover:text-blue-400 transition-colors font-medium">E-commerce Solutions</Link></li>
+              <li><Link href="/solutions/content-marketing" className="hover:text-blue-400 transition-colors font-medium">Content Marketing</Link></li>
+            </ul>
+          </div>
 
-    {/* Company - Right */}
-    <div className="flex-1 bg-gray-900 rounded-xl p-4 shadow-inner">
-      <h3 className="font-bold mb-3 text-lg text-left text-white">Company</h3>
-      <ul className="space-y-2 text-gray-300 text-sm text-left">
-        <li><Link href="/WhyUs" className="hover:text-blue-400 transition-colors font-medium">Why Us</Link></li>
-        <li><Link href="/Careers" className="hover:text-blue-400 transition-colors font-medium">Careers</Link></li>
-        <li><Link href="/blog" className="hover:text-blue-400 transition-colors font-medium">Blog</Link></li>
-        <li><Link href="/faq" className="hover:text-blue-400 transition-colors font-medium">FAQ</Link></li>
-      </ul>
-    </div>
+          {/* Company - Right */}
+          <div className="flex-1 bg-gray-900 rounded-xl p-4 shadow-inner">
+            <h3 className="font-bold mb-3 text-lg text-left text-white">Company</h3>
+            <ul className="space-y-2 text-gray-300 text-sm text-left">
+              <li><Link href="/WhyUs" className="hover:text-blue-400 transition-colors font-medium">Why Us</Link></li>
+              <li><Link href="/Careers" className="hover:text-blue-400 transition-colors font-medium">Careers</Link></li>
+              <li><Link href="/blog" className="hover:text-blue-400 transition-colors font-medium">Blog</Link></li>
+              <li><Link href="/faq" className="hover:text-blue-400 transition-colors font-medium">FAQ</Link></li>
+            </ul>
+          </div>
 
-  </div>
+        </div>
 
-  {/* Social Icons */}
-  <div className="flex justify-center items-center gap-6 text-2xl text-gray-300 mt-6">
-    <a href="#" className="hover:text-blue-500 transition"><FaFacebookF /></a>
-    <a href="#" className="hover:text-blue-400 transition"><FaLinkedinIn /></a>
-    <a href="#" className="hover:text-pink-500 transition"><FaInstagram /></a>
-    <a href="#" className="hover:text-red-600 transition"><FaYoutube /></a>
-  </div>
+        {/* Social Icons */}
+        <div className="flex justify-center items-center gap-6 text-2xl text-gray-300 mt-6">
+          <a href="#" className="hover:text-blue-500 transition"><FaFacebookF /></a>
+          <a href="#" className="hover:text-blue-400 transition"><FaLinkedinIn /></a>
+          <a href="#" className="hover:text-pink-500 transition"><FaInstagram /></a>
+          <a href="#" className="hover:text-red-600 transition"><FaYoutube /></a>
+        </div>
 
-  {/* Newsletter */}
-  <div className="bg-gray-900 rounded-xl p-4 shadow-inner flex flex-col gap-3 mt-6">
-    <input
-      type="email"
-      placeholder="Enter your email"
-      className="w-full p-3 rounded-full border border-gray-600 text-white text-sm placeholder-gray-400 outline-none focus:ring-2 focus:ring-blue-500"
-    />
-    <label className="flex items-start gap-2 text-xs text-gray-400 mt-2">
-      <input type="checkbox" className="w-4 h-4 accent-blue-500 rounded mt-1" />
-      I agree to the Privacy Policy & give my permission to process my personal data.
-    </label>
-    <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 text-sm mt-3 self-center">
-      Subscribe
-    </button>
-  </div>
+        {/* Newsletter */}
+        <div className="bg-gray-900 rounded-xl p-4 shadow-inner flex flex-col gap-3 mt-6">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            className="w-full p-3 rounded-full border border-gray-600 text-white text-sm placeholder-gray-400 outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <label className="flex items-start gap-2 text-xs text-gray-400 mt-2">
+            <input type="checkbox" className="w-4 h-4 accent-blue-500 rounded mt-1" />
+            I agree to the Privacy Policy & give my permission to process my personal data.
+          </label>
+          <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 text-sm mt-3 self-center">
+            Subscribe
+          </button>
+        </div>
 
-  {/* Terms */}
-  <div className="flex flex-wrap gap-4 text-gray-400 text-xs mt-4 justify-center text-center">
-    <span>Terms & Conditions</span>
-    <span>Privacy Policy</span>
-  </div>
+        {/* Terms */}
+        <div className="flex flex-wrap gap-4 text-gray-400 text-xs mt-4 justify-center text-center">
+          <span>Terms & Conditions</span>
+          <span>Privacy Policy</span>
+        </div>
 
-</div>
+      </div>
 
 
 

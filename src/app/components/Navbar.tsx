@@ -290,10 +290,10 @@ export default function Navbar() {
                              <h4 className="text-gray-700 font-semibold mt-5 mb-2">Follow Us</h4>
                                 <div className="flex space-x-4 mt-4 mb-6">
                                 {[
-                                    { src: 'https://cdn-icons-png.flaticon.com/512/733/733547.png', alt: 'Facebook', href: 'https://facebook.com/company' },
-                                    { src: 'https://cdn-icons-png.flaticon.com/512/733/733561.png', alt: 'LinkedIn', href: 'https://linkedin.com/company/company' },
-                                    { src: 'https://cdn-icons-png.flaticon.com/512/733/733558.png', alt: 'Instagram', href: 'https://instagram.com/company' },
-                                    { src: 'https://cdn-icons-png.flaticon.com/512/1384/1384060.png', alt: 'YouTube', href: 'https://youtube.com/@company' },
+                                    { src: 'https://cdn-icons-png.flaticon.com/512/733/733547.png', alt: 'Facebook', href: 'https://www.facebook.com/netrootstech' },
+                                    { src: 'https://cdn-icons-png.flaticon.com/512/733/733561.png', alt: 'LinkedIn', href: 'https://www.linkedin.com/company/netroots-technologies' },
+                                    { src: 'https://cdn-icons-png.flaticon.com/512/733/733558.png', alt: 'Instagram', href: 'https://www.instagram.com/netrootstechnologies1' },
+                                    { src: 'https://cdn-icons-png.flaticon.com/512/1384/1384060.png', alt: 'YouTube', href: 'https://www.youtube.com/@netrootstechnologies7406' },
                                 ].map(({ src, alt, href }, idx) => (
                                     <a
                                     key={idx}
