@@ -88,7 +88,7 @@ export default function TestimonialDetail({ params }: Props) {
 
       <Navbar />
 
-      <main className="py-16 px-6 md:px-20 bg-[#f9f9f9] min-h-screen">
+      <main className="py-16 px-6 md:px-20 bg-[#f9f9f9] ">
         <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8">
           <div className="flex flex-col md:flex-row items-center gap-6">
             <Image
@@ -117,13 +117,13 @@ export default function TestimonialDetail({ params }: Props) {
           </div>
         </div>
 
-        {/* Contact Us Section */}
-        <div className="mt-16">
-          <ContactUs />
-        </div>
+        
+   
       </main>
 
-      <Footer />
+    
+        <ContactUs />
+        <Footer />
     </div>
   );
 }
