@@ -9,10 +9,10 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Footer() {
   return (
-    <footer className={`bg-black  text-white pt-5 ${inter.className}`}>
+    <footer className={`bg-black text-white pt-5 ${inter.className}`}>
 
       {/* -------------------- Desktop Footer -------------------- */}
-      <div className="hidden sm:flex py-10 px-6 md:px-20 max-w-8xl mx-auto flex-col md:flex-row justify-between gap-10">
+      <div className="hidden sm:flex py-10 px-6 md:px-20 max-w-7xl mx-auto flex-col md:flex-row justify-between gap-10">
         
         {/* Logo */}
         <div className="flex justify-center md:justify-start mb-6 md:mb-0">
@@ -86,7 +86,7 @@ export default function Footer() {
       </div>
 
       {/* -------------------- Mobile Footer -------------------- */}
-      <div className="sm:hidden px-6 py-8 bg-black text-white">
+      <div className="sm:hidden px-6 py-8 bg-black text-white max-w-7xl mx-auto">
 
         {/* Logo */}
         <div className="flex justify-center mb-6">
@@ -162,11 +162,8 @@ export default function Footer() {
 
       </div>
 
-
-
-
       {/* -------------------- White Bar -------------------- */}
-      <div className="bg-white text-black py-4 text-center text-sm">
+      <div className="bg-white text-black py-4 text-center text-sm max-w-7xl mx-auto">
         &copy; {new Date().getFullYear()} Netroots Technologies. All Rights Reserved.
       </div>
     </footer>

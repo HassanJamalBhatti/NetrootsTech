@@ -21,12 +21,12 @@ const testimonials = [
   },
   {
     rating: 4.9,
-    title: "Amazing Support!",
-    text: "Dining at American Greatest Restaurant is an unforgettable experience! From the first bite to the last, every dish bursts with flavor. The ambiance is warm and inviting, perfect for family and friends. The staff is attentive and truly makes you feel valued. We highly recommend it to anyone seeking top-notch cuisine and service.",
-    author: "American Greatest",
+    title: "Amazing Business Support!",
+    text: "Netroots Technologies has been instrumental in driving the growth of our business. Their ERP solutions and digital services have streamlined our operations, improved efficiency, and allowed us to focus on expanding our reach. Their support is unmatched, and we highly recommend Netroots for any business looking to grow and succeed.",
+    author: "American Greatest Wings",
     img: "/clients/AGW.png",
     link: "/Work/2",
-  },
+   },
   {
     rating: 4.5,
     title: "Extremely Recommended",

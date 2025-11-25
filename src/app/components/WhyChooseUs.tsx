@@ -10,14 +10,14 @@ export default function WhyChooseUs() {
     <section
       className={`bg-black text-white py-12 sm:py-16 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-32 2xl:px-48 ${inter.className}`}
     >
-      <div className="max-w-8xl mx-auto relative">
+      <div className="max-w-7xl mx-auto relative">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-10 sm:mb-12 gap-6">
           <div>
             <p className="text-teal-500 font-medium mb-2 text-sm sm:text-base">
               {"//"} <span className="text-white">Why Choose Us</span>
             </p>
-            <h2 className="text-3xl sm:text-4xl md:text-4xl xl:text-4xl font-semibold leading-tight">
+            <h2 className="text-xl sm:text-2xl md:text-3xl xl:text-4xl font-bold leading-tight">
               Why Trust Us for <br />
               Your IT Needs?
             </h2>
@@ -71,7 +71,7 @@ export default function WhyChooseUs() {
   );
 }
 
-// Reusable Feature component with smaller icon & semibold title
+// Reusable Feature component
 function Feature({
   icon,
   title,
@@ -82,18 +82,12 @@ function Feature({
   description: string;
 }) {
   return (
-    <div className="flex flex-col items-start space-y-3">
-      {/* Smaller Icon */}
+    <div className="flex flex-col items-start space-y-2">
       <div className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl">{icon}</div>
-
-      {/* Semi-bold Title */}
-      <h3 className="font-semibold text-base sm:text-lg md:text-xl lg:text-xl">
+      <h3 className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl">
         {title}
       </h3>
-
-      <p className="text-gray-400 text-sm sm:text-base lg:text-lg">
-        {description}
-      </p>
+      <p className="text-gray-400 text-xs sm:text-sm lg:text-base">{description}</p>
     </div>
   );
 }
