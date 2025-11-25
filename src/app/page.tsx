@@ -123,62 +123,67 @@ export default function Home() {
         {/* Hero / Banner Section */}
         <SectionWrapper id="hero">
         <section
-          className={`${inter.className} relative mt-20 flex flex-row items-center justify-start min-h-[90vh] px-6 md:px-20 overflow-hidden`}
+          className={`${inter.className} relative mt-20 flex flex-row items-center justify-center min-h-[90vh] px-6 md:px-20 overflow-hidden`}
         >
-          {/* Background Rotating Images */}
-          {images.map((img, index) => (
-            <div
-              key={index}
-              className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000`}
-              style={{
-                backgroundImage: `url(${img})`,
-                opacity: current === index ? 1 : 0,
-              }}
-            />
-          ))}
+          {/* Centered Container with max-w-7xl */}
+          <div className="w-full max-w-7xl mx-auto relative">
+            
+            {/* Background Rotating Images */}
+            {images.map((img, index) => (
+              <div
+                key={index}
+                className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000`}
+                style={{
+                  backgroundImage: `url(${img})`,
+                  opacity: current === index ? 1 : 0,
+                }}
+              />
+            ))}
 
-          {/* Content */}
-          <motion.div
-            className="relative z-10 flex flex-col gap-6 max-w-xl text-left"
-            initial={{ opacity: 0, x: -80 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <p className="text-sm md:text-base text-black">
-              Experience the Best IT Services in the World.
-            </p>
+            {/* Content */}
+            <motion.div
+              className="relative z-10 flex flex-col gap-6 max-w-xl text-left"
+              initial={{ opacity: 0, x: -80 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <p className="text-sm md:text-base text-black">
+                Experience the Best IT Services in the World.
+              </p>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-black">
-              Driving Business <br />
-              Growth with <br />
-              Scalable Digital <br />
-              Solutions!
-            </h1>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-black">
+                Driving Business <br />
+                Growth with <br />
+                Scalable Digital <br />
+                Solutions!
+              </h1>
 
-            <p className="text-sm md:text-base text-black/90">
-              We seamlessly blend creative marketing strategies with novel
-              solutions that help businesses grow, connect, and thrive in their
-              niche.
-            </p>
+              <p className="text-sm md:text-base text-black/90">
+                We seamlessly blend creative marketing strategies with novel
+                solutions that help businesses grow, connect, and thrive in their
+                niche.
+              </p>
 
-            {/* Buttons */}
-            <div className="flex flex-row flex-wrap gap-4 mt-4">
-              <button
-                onClick={() => window.location.replace('/contectus')}
-                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold sm:text-[12px] md:text-sm px-5 py-2.5 rounded-full transition-all shadow-md"
-              >
-                Book a Strategy Call
-              </button>
+              {/* Buttons */}
+              <div className="flex flex-row flex-wrap gap-4 mt-4">
+                <button
+                  onClick={() => window.location.replace('/contectus')}
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-semibold sm:text-[12px] md:text-sm px-5 py-2.5 rounded-full transition-all shadow-md"
+                >
+                  Book a Strategy Call
+                </button>
 
-              <button
-                onClick={() => scrollTo('technology')}
-                className="bg-white/90 hover:bg-white text-blue-700 font-semibold sm:text-[12px] md:text-sm px-5 py-2.5 rounded-full transition-all shadow-md"
-              >
-                Check Our Expertise
-              </button>
-            </div>
-          </motion.div>
+                <button
+                  onClick={() => scrollTo('technology')}
+                  className="bg-white/90 hover:bg-white text-blue-700 font-semibold sm:text-[12px] md:text-sm px-5 py-2.5 rounded-full transition-all shadow-md"
+                >
+                  Check Our Expertise
+                </button>
+              </div>
+            </motion.div>
+
+          </div>
         </section>
 
 

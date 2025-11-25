@@ -17,7 +17,7 @@ export default function WhyChooseUs() {
             <p className="text-teal-500 font-medium mb-2 text-sm sm:text-base">
               {"//"} <span className="text-white">Why Choose Us</span>
             </p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-4xl xl:text-4xl font-semibold leading-tight">
               Why Trust Us for <br />
               Your IT Needs?
             </h2>
@@ -71,7 +71,7 @@ export default function WhyChooseUs() {
   );
 }
 
-// Reusable Feature component
+// Reusable Feature component with smaller icon & semibold title
 function Feature({
   icon,
   title,
@@ -83,10 +83,14 @@ function Feature({
 }) {
   return (
     <div className="flex flex-col items-start space-y-3">
-      <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">{icon}</div>
-      <h3 className="font-semibold text-base sm:text-lg md:text-xl lg:text-2xl">
+      {/* Smaller Icon */}
+      <div className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl">{icon}</div>
+
+      {/* Semi-bold Title */}
+      <h3 className="font-semibold text-base sm:text-lg md:text-xl lg:text-xl">
         {title}
       </h3>
+
       <p className="text-gray-400 text-sm sm:text-base lg:text-lg">
         {description}
       </p>

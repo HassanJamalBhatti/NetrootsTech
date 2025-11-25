@@ -55,10 +55,10 @@ export default function Footer() {
         <div className="flex-1 flex flex-col gap-6 md:-ml-35 text-center md:text-left">
           {/* Social Icons */}
           <div className="flex justify-center md:justify-start items-center gap-4 text-2xl text-gray-300">
-            <a href="#" className="hover:text-blue-500"><FaFacebookF /></a>
-            <a href="#" className="hover:text-blue-400"><FaLinkedinIn /></a>
-            <a href="#" className="hover:text-pink-500"><FaInstagram /></a>
-            <a href="#" className="hover:text-red-600"><FaYoutube /></a>
+            <a href="https://www.facebook.com/netrootstech" className="hover:text-blue-500"><FaFacebookF /></a>
+            <a href="https://www.linkedin.com/company/netroots-technologies" className="hover:text-blue-400"><FaLinkedinIn /></a>
+            <a href="https://www.instagram.com/netrootstechnologies1" className="hover:text-pink-500"><FaInstagram /></a>
+            <a href="https://www.youtube.com/@netrootstechnologies7406" className="hover:text-red-600"><FaYoutube /></a>
           </div>
 
           {/* Newsletter */}
