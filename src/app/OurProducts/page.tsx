@@ -49,14 +49,14 @@ export default function CoreProducts() {
       description:
         "Are you struggling to manage customer relationships and marketing efforts efficiently? If manual processes are slowing you down, NetRoots Technologies offers NetRoots CRM a cloud-based customer relationship management solution designed to streamline operations....",
       href: "/nrt-crm",
-      logo: "/forsahr.png",
+      logo: "/NRT-CRM.png",
     },
     {
       title: "NRT PMS",
       description:
         "Are you struggling to manage your real estate properties efficiently? If manual processes are slowing you down, NetRoots Technologies offers NRT PMS a cloud-based property management solution designed to streamline operations....",
       href: "/aims-erp",
-      logo: "/educatum.png",
+      logo: "/NRT-PMS.png",
     },
   ];
     if (loadingPage) {

@@ -193,7 +193,7 @@ export default function Navbar() {
                                   { label: 'FORSA HR', icon: '/forsahr.png', href: '/forsa-hr' },
                                   { label: 'FORSA ERP', icon: '/forsaerp.png', href: '/forsa-erp' },
                                   { label: 'EDUCATUM', icon: '/educatum.png', href: '/educatum' },
-                                  { label: 'AIMS ERP', icon: '/educatum.png', href: '/aims-erp' },
+                                  { label: 'AIMS ERP', icon: '/AIMS-ERP.png', href: '/aims-erp' },
                                 ].map(({ label, icon, href }) => (
                                   <li key={label}>
                                     <Link
