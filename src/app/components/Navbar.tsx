@@ -191,7 +191,7 @@ export default function Navbar() {
                               <ul className="grid grid-cols-2 gap-4 text-sm text-gray-800">
                                 {[
                                   { label: 'FORSA HR', icon: '/forsahr.png', href: '/forsa-hr' },
-                                  { label: 'FORSA ERP', icon: '/forsahr.png', href: '/forsa-erp' },
+                                  { label: 'FORSA ERP', icon: '/forsaerp.png', href: '/forsa-erp' },
                                   { label: 'EDUCATUM', icon: '/educatum.png', href: '/educatum' },
                                   { label: 'AIMS ERP', icon: '/educatum.png', href: '/aims-erp' },
                                 ].map(({ label, icon, href }) => (

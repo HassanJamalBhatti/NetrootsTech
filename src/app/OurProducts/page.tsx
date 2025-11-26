@@ -21,7 +21,7 @@ export default function CoreProducts() {
       description:
         "ForsaERP is a leading cloud-based Enterprise Resource Planning (ERP) solution designed to integrate, streamline, and centralize various business processes. It offers comprehensive modules that support back-office operations, finance, procurement, payroll, and forecasting....",
       href: "/forsa-erp",
-      logo: "/forsahr.png", // add your logo path here
+      logo: "/forsaerp.png", 
     },
     {
       title: "FORSA HR",
@@ -42,7 +42,7 @@ export default function CoreProducts() {
       description:
         "We talked with you. We worked with you. And then we created DentoMate: A simple, sleek, and practical electronic health system for dental clinics. DentoMate delivers a user-friendly interface to help you automate and manage administrative tasks so that you can focus on your patients....",
       href: "/dentomate",
-      logo: "/forsahr.png",
+      logo: "/dentomate.png",
     },
     {
       title: "NRT CRM",
