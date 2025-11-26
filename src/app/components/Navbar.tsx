@@ -203,17 +203,17 @@ export default function Navbar() {
                                       tabIndex={0}
                                       onClick={() => setOpenDropdown && setOpenDropdown(null)}
                                     >
-                                      <div className="w-[70px] h-[50px] flex items-center justify-center overflow-hidden">
+                                      <div className="w-[60px] h-[40px] flex items-center justify-center overflow-hidden">
                                         <Image
                                           src={icon}
                                           alt={`${label} logo`}
-                                          width={90}
-                                          height={70}
+                                          width={120}
+                                          height={90}
                                           className="object-contain"
                                         />
                                       </div>
 
-                                      <span className="text-center">{label}</span>
+                                      <span className="text-center text-[12px]">{label}</span>
                                     </Link>
                                   </li>
                                 ))}
