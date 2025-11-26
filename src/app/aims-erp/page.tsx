@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ContactUs from "../components/ContactUs";
 import { Inter } from "next/font/google";
+import Image from "next/image";
 
 // Load Inter font
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
@@ -192,57 +193,66 @@ export default function AimsErpPage() {
             </p>
             </>
         );
-      case "Features":
+        case "Features":
         return (
-            <div className="space-y-6">
+            <div className="space-y-10">
+            
+            {/* ===================== MAIN HEADING ===================== */}
+            <h2 className="text-3xl font-bold">Features</h2>
 
-            <h2 className="text-2xl font-bold mb-4">Features</h2>
+            {/* ===================== STANDARD INTRO ===================== */}
+            <h3 className="text-2xl font-semibold">
+                AIMS (Standard)  Accounts & Inventory Management System
+            </h3>
 
-            {/* Header */}
-            <h3 className="text-xl font-semibold">AIMS ERP - Accounts & Inventory Management System</h3>
+            {/* Screenshot 1 */}
+            <Image src="/products/amis/standard1.png" width={500} height={300} className="rounded shadow" alt="Standard Screenshot 1" />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
-                <img src="/products/amis/Invoicing-Summary.png" className="rounded shadow" alt="Screenshot 1" />
-                <img src="/products/amis/ProfitBooks-Dashboard.png" className="rounded shadow" alt="Screenshot 2" />
-            </div>
+            <h3 className="text-2xl font-semibold mt-6">Complete Package for Any Business Domain</h3>
 
-            {/* Complete Package */}
-            <h3 className="text-xl font-semibold mt-8">Complete Package for Any Business Domain</h3>
-            <img src="/products/amis/maxresdefault.png" className="rounded shadow my-4" alt="Screenshot 3" />
+            {/* Screenshot 2 */}
+            <Image src="/products/amis/standard2.png" width={500} height={300} className="rounded shadow" alt="Standard Screenshot 2" />
 
-            {/* Dashboard Overview */}
-            <h3 className="text-xl font-semibold mt-8">Dashboard Overview</h3>
+            <h3 className="text-2xl font-semibold mt-6">User Login</h3>
 
-            <ul className="list-disc pl-6 space-y-2">
-                <li>Real-Time Graphical View of Your Business</li>
-                <li>Purchases & Sales Overview</li>
+            {/* Screenshot 3 */}
+            <Image src="/products/amis/standard3.png" width={300} height={150} className="rounded shadow" alt="Standard Screenshot 3" />
+
+            {/* ===================== DASHBOARD ===================== */}
+            <h3 className="text-3xl font-bold mt-10">DASHBOARD OVERVIEW</h3>
+
+            {/* Screenshot 4 */}
+            <Image src="/products/amis/standard4.png" width={900} height={600} className="rounded shadow" alt="Standard Screenshot 4" />
+
+            <ul className="list-disc pl-6 space-y-2 mt-4">
+                <li>Dash board with a Real-Time Graphical view of your Business</li>
+                <li>Purchases & Sales</li>
                 <li>Active & Inactive Products</li>
                 <li>Dead Sales Items</li>
-                <li>Reorder Level Alerts</li>
-                <li>Document Statistics</li>
+                <li>Reorder Items</li>
+                <li>Documents Statistics</li>
                 <li>Scheduled Tasks</li>
-                <li>To-Do List</li>
+                <li>To Do List</li>
             </ul>
 
-            <img src="/products/amis/Dashboard.png" className="rounded shadow my-4" alt="Screenshot 4" />
+            {/* ===================== ACCOUNTS MANAGEMENT ===================== */}
+            <h2 className="text-3xl font-bold mt-12">Accounts Management (AM)</h2>
 
-            {/* Accounts Management */}
-            <h3 className="text-2xl font-bold mt-10">Accounts Management (AM)</h3>
-
-            <p className="mt-2 text-justify">
-                The AIMS Accounts & Finance Module gives you complete control over financial decisions.
-                Developed according to international bookkeeping standards, it ensures your reports meet
-                audit requirements in Pakistan.
+            <p className="text-justify">
+                AIMS (Standard) Accounts and Finance Module gives you the power to take control of your 
+                financial decisions. Built according to international bookkeeping standards, it generates 
+                fully compliant audit reports for businesses in Pakistan.
             </p>
 
-            <p className="mt-2 text-justify">
-                With AIMS ERP, businesses can reduce operational costs and increase profits with structured,
-                automated financial processes.
+            <p className="text-justify mt-2">
+                With strong financial tools and automated processes, businesses can minimize costs and 
+                maximize profitability with ease.
             </p>
 
-            <h4 className="text-xl font-semibold mt-4">Key Features of AM</h4>
+            <h3 className="text-xl font-semibold mt-4">Key Features of AM</h3>
+
             <ul className="list-disc pl-6 space-y-2">
-                <li>Flexible Chart of Accounts & Sub-Accounts</li>
+                <li>Flexible GL Account (Chart of Account) & Sub-Account</li>
                 <li>Payment & Receipt Vouchers</li>
                 <li>Cash & Bank Vouchers with Cheque Management</li>
                 <li>Journal Vouchers</li>
@@ -250,173 +260,169 @@ export default function AimsErpPage() {
                 <li>Scheduled / Recurring Transactions</li>
                 <li>Reversing Entries</li>
                 <li>Bulk Payment & Receipt Entry</li>
+                <li>Auto Cash Transaction Posting</li>
                 <li>Bank Reconciliation</li>
                 <li>Multi-Level Trial Balance</li>
-                <li>Final Financial Statements</li>
+                <li>Final Statements</li>
             </ul>
 
+            {/* Screenshots 5 & 6 */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
-                <img src="/products/amis/key-account.png" className="rounded shadow" />
-                <img src="/products/amis/feature-6.png" className="rounded shadow" />
+                <Image src="/products/amis/standard5.png" width={500} height={300} className="rounded shadow" alt="Screenshot 5" />
+                <Image src="/products/amis/standard6.png" width={500} height={300} className="rounded shadow" alt="Screenshot 6" />
             </div>
 
-            {/* Inventory Management */}
-            <h3 className="text-2xl font-bold mt-10">Inventory Management (IM)</h3>
+            {/* Screenshots 7 & 8 */}
+            <h3 className="text-lg font-semibold mt-4">Create Supplier & Customer</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+                <Image src="/products/amis/standard7.png" width={500} height={300} className="rounded shadow" alt="Screenshot 7" />
+                <Image src="/products/amis/standard8.png" width={500} height={300} className="rounded shadow" alt="Screenshot 8" />
+            </div>
+
+            {/* More Screenshots (9–13) */}
+            <h3 className="text-lg font-semibold mt-6">Cash / Bank Vouchers & Journal Vouchers</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+                <Image src="/products/amis/standard9.png" width={500} height={300} className="rounded shadow" alt="Screenshot 9" />
+                <Image src="/products/amis/standard10.png" width={500} height={300} className="rounded shadow" alt="Screenshot 10" />
+                <Image src="/products/amis/standard11.png" width={500} height={300} className="rounded shadow" alt="Screenshot 11" />
+                <Image src="/products/amis/standard12.png" width={500} height={300} className="rounded shadow" alt="Screenshot 12" />
+                <Image src="/products/amis/standard13.png" width={500} height={300} className="rounded shadow" alt="Screenshot 13" />
+            </div>
+
+            {/* ===================== INVENTORY MANAGEMENT ===================== */}
+            <h2 className="text-3xl font-bold mt-12">Inventory Management (IM)</h2>
 
             <p className="text-justify">
-                A highly efficient FIFO-based inventory & warehouse solution. AIMS ERP helps manage stock,
-                forecast inventory, and enhance warehouse operations with real-time tracking.
+                A highly optimized FIFO-based inventory & warehouse system. It manages stock levels, 
+                warehouse operations, forecasting, valuations, and stock movements in real-time.
             </p>
 
-            <h4 className="text-xl font-semibold mt-4">Key Features of IM</h4>
+            <h3 className="text-xl font-semibold mt-4">Key Features of IM</h3>
+
             <ul className="list-disc pl-6 space-y-2">
-                <li>Dynamic Product Chart</li>
-                <li>Multi Units of Measure</li>
+                <li>Dynamic Product Chart with Multi UOM</li>
                 <li>Active & Inactive Products</li>
-                <li>Unicode / Urdu Language Support</li>
-                <li>Multiple Barcode Support</li>
-                <li>Advanced Filtration Options</li>
+                <li>Unicode (Urdu) Language Support</li>
+                <li>Multiple Barcodes & Batch Barcoding</li>
+                <li>Advanced & Custom Filtration</li>
+                <li>Product Grouping & Categorization</li>
                 <li>Automated & Manual Reorder Management</li>
-                <li>Inventory Optimization & Forecasting</li>
-                <li>Multi Location / Warehouses</li>
+                <li>Inventory Forecasting & Valuation</li>
+                <li>Multiple Warehouses</li>
                 <li>Billing & Invoicing</li>
                 <li>Purchase vs Sales Analysis</li>
             </ul>
 
+            {/* Screenshots 14 & 15 */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
-                <img src="/feature-7.png" className="rounded shadow" />
-                <img src="/feature-8.png" className="rounded shadow" />
+                <Image src="/products/amis/standard14.png" width={500} height={300} className="rounded shadow" alt="Screenshot 14" />
+                <Image src="/products/amis/standard15.png" width={500} height={300} className="rounded shadow" alt="Screenshot 15" />
             </div>
 
-            {/* Purchase Order Management */}
-            <h3 className="text-2xl font-bold mt-10">Purchase Order Management (POM)</h3>
+            {/* Screenshots 16 & 17 */}
+            <h3 className="text-lg font-semibold mt-4">Barcode & Batch Printing</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <Image src="/products/amis/standard16.png" width={500} height={300} className="rounded shadow" alt="Screenshot 16" />
+                <Image src="/products/amis/standard17.png" width={500} height={300} className="rounded shadow" alt="Screenshot 17" />
+            </div>
+
+            {/* ===================== PURCHASE ORDER MANAGEMENT ===================== */}
+            <h2 className="text-3xl font-bold mt-12">Purchase Order Management (POM)</h2>
 
             <p className="text-justify">
-                Smart purchase management with system-generated and manual POs, document tracking,
-                expense control, and multi-UOM support.
+                A complete purchase workflow with system-generated and manual POs, expense allocation, 
+                product tracking, and document filtration.
             </p>
 
-            <h4 className="text-xl font-semibold mt-4">Key Features of POM</h4>
+            <h3 className="text-xl font-semibold mt-4">Key Features of POM</h3>
+
             <ul className="list-disc pl-6 space-y-2">
-                <li>Complete Purchase Management System</li>
+                <li>Full purchase management system</li>
                 <li>Detailed & Summary Purchase Orders</li>
                 <li>Track Purchase History</li>
                 <li>Email POs to Suppliers</li>
                 <li>Advanced Document Filtration</li>
                 <li>On-Invoice Expense Allocation</li>
-                <li>Manual & System Generated POs</li>
-                <li>Attachments per PO/PI</li>
+                <li>Manual & System-Generated POs</li>
+                <li>Attachment Support</li>
             </ul>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
-                <img src="/feature-9.png" className="rounded shadow" />
-                <img src="/feature-10.png" className="rounded shadow" />
+            {/* Screenshots 18 & 19 */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <Image src="/products/amis/standard18.png" width={500} height={300} className="rounded shadow" alt="Screenshot 18" />
+                <Image src="/products/amis/standard19.png" width={500} height={300} className="rounded shadow" alt="Screenshot 19" />
             </div>
 
-            {/* Sales Invoice Management */}
-            <h3 className="text-2xl font-bold mt-10">Sales Invoice Management (SIM)</h3>
+            {/* ===================== SALES INVOICE MANAGEMENT ===================== */}
+            <h2 className="text-3xl font-bold mt-12">Sales Invoice Management (SIM)</h2>
 
             <p className="text-justify">
-                A powerful sales module with invoices, returns, profit calculations, and admin-controlled
-                invoice permissions.
+                Sales orders, returns, multi-UOM, profit calculation, discounts, bonuses, controlled invoice 
+                editing, and multilingual invoice printing.
             </p>
 
-            <h4 className="text-xl font-semibold mt-4">Key Features of SIM</h4>
+            <h3 className="text-xl font-semibold mt-4">Key Features of SIM</h3>
+
             <ul className="list-disc pl-6 space-y-2">
                 <li>Sales Orders & Invoices</li>
                 <li>Sales Returns</li>
-                <li>Multi UOM</li>
                 <li>On-Invoice Expense Control</li>
+                <li>Cash Receipt Controls</li>
                 <li>Salesman Credit Balance Control</li>
                 <li>Profit Calculator</li>
-                <li>Multi-Language Invoice Prints</li>
-                <li>Admin Invoice Edit/Delete Rights</li>
+                <li>Admin-Controlled Invoice Permissions</li>
+                <li>Multi-Language & Multi-Size Printing</li>
+                <li>Audit Tracking</li>
             </ul>
 
+            {/* Screenshots 20 & 21 */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
-                <img src="/feature-11.png" className="rounded shadow" />
-                <img src="/feature-12.png" className="rounded shadow" />
+                <Image src="/products/amis/standard20.png" width={500} height={300} className="rounded shadow" alt="Screenshot 20" />
+                <Image src="/products/amis/standard21.png" width={500} height={300} className="rounded shadow" alt="Screenshot 21" />
             </div>
 
-            {/* POS */}
-            <h3 className="text-2xl font-bold mt-10">Point of Sale (POS)</h3>
+            {/* ===================== POS ===================== */}
+            <h2 className="text-3xl font-bold mt-12">Point of Sale (POS)</h2>
 
             <p className="text-justify">
-                A fast, modern POS system fully integrated with accounting, inventory, and reporting.
+                A fast POS system supporting barcode scanners, cash drawers, receipts, multi-store, 
+                online/offline mode, invoice history & stock syncing.
             </p>
 
-            <h4 className="text-xl font-semibold mt-4">Key Features of POS</h4>
+            <h3 className="text-xl font-semibold mt-4">Key Features of POS</h3>
+
             <ul className="list-disc pl-6 space-y-2">
-                <li>Multi-Store Support</li>
-                <li>Multiple Payment Types</li>
-                <li>Barcode Scanner Support</li>
-                <li>Receipt & Invoice Printing</li>
-                <li>Credit/Debit Card Support</li>
-                <li>Offline & Cloud Mode</li>
-                <li>Hold/Resume Invoice</li>
-                <li>Invoice History</li>
+                <li>Multiple Store Configuration</li>
+                <li>All Payment Types Supported</li>
+                <li>Integrated with Accounting & Inventory</li>
+                <li>Barcode Scanners & Printers Support</li>
+                <li>Credit/Debit Cards Support</li>
+                <li>Hold & Resume Invoice</li>
+                <li>Works Offline & Cloud</li>
             </ul>
 
-            <img src="/feature-13.png" className="rounded shadow my-4" />
+            {/* Screenshot 22 */}
+            <Image src="/products/amis/standard22.png" width={800} height={500} className="rounded shadow my-4" alt="Screenshot 22" />
 
-            {/* Reports */}
-            <h3 className="text-2xl font-bold mt-10">Reports & Business Intelligence</h3>
+            {/* ===================== REPORTS ===================== */}
+            <h2 className="text-3xl font-bold mt-12">Reports & Business Intelligence</h2>
 
             <p className="text-justify">
-                Over 100 detailed business reports with advanced filtering, financial statements,
-                and export options (PDF, XLSX, CSV, HTML, Image).
+                Over 100 detailed reports with advanced filtering, export to PDF, Excel, CSV, HTML, Image 
+                and more. Includes BI insights and financial reporting tools.
             </p>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 my-4">
-                <img src="/feature-14.png" className="rounded shadow" />
-                <img src="/feature-15.png" className="rounded shadow" />
-                <img src="/feature-16.png" className="rounded shadow" />
-                <img src="/feature-17.png" className="rounded shadow" />
+            {/* Screenshots 23––26 */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <Image src="/products/amis/standard23.png" width={300} height={200} className="rounded shadow" alt="Screenshot 23" />
+                <Image src="/products/amis/standard24.png" width={300} height={200} className="rounded shadow" alt="Screenshot 24" />
+                <Image src="/products/amis/standard25.png" width={300} height={200} className="rounded shadow" alt="Screenshot 25" />
+                <Image src="/products/amis/standard26.png" width={300} height={200} className="rounded shadow" alt="Screenshot 26" />
             </div>
-
-            {/* Key Features Section */}
-            <h3 className="text-2xl font-bold mt-10">Key Features Overview</h3>
-
-            <h4 className="text-xl font-semibold mt-4">Master</h4>
-            <ul className="list-disc pl-6 space-y-1">
-                <li>Product Chart</li>
-                <li>Group & Category Creation</li>
-                <li>Units of Measure</li>
-                <li>Chart of Accounts</li>
-                <li>Warehouse Creation</li>
-                <li>Supplier & Customer Management</li>
-            </ul>
-
-            <h4 className="text-xl font-semibold mt-6">Accounts</h4>
-            <ul className="list-disc pl-6 space-y-1">
-                <li>Cash & Bank Vouchers</li>
-                <li>Journal Vouchers</li>
-                <li>Service Vouchers</li>
-                <li>Bank Book / Cash Book</li>
-                <li>Ledger Reports</li>
-                <li>Expense Summary</li>
-            </ul>
-
-            <h4 className="text-xl font-semibold mt-6">Purchase & Sales</h4>
-            <ul className="list-disc pl-6 space-y-1">
-                <li>Sales & Purchase Orders</li>
-                <li>Sales Tax Invoices</li>
-                <li>Stock Transfers</li>
-                <li>Bulk Price Updates</li>
-                <li>Stock Adjustments</li>
-            </ul>
-
-            <h4 className="text-xl font-semibold mt-6">Tools</h4>
-            <ul className="list-disc pl-6 space-y-1">
-                <li>Quick Search</li>
-                <li>User Maintenance</li>
-                <li>SMS Device Connection</li>
-                <li>Application Settings</li>
-                <li>Email Integration</li>
-            </ul>
 
             </div>
         );
+
       case "Customizable":
         return (
             <div>
@@ -468,7 +474,7 @@ export default function AimsErpPage() {
       case "What's New":
         return (
             <div>
-            <h2 className="text-2xl font-bold mb-4">What's New</h2>
+            <h2 className="text-2xl font-bold mb-4">Whats New</h2>
 
             <p className="mb-6 font-semibold">What’s New in AIMS (Standard)</p>
 
@@ -566,11 +572,14 @@ export default function AimsErpPage() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
-          <img
+          <Image
             src="/products/amis/Dashboard.png"
             alt="AIMS ERP Dashboard"
-            className="w-full md:w-4/5 rounded-xl shadow-lg"
-          />
+            width={1200}   // you can adjust this
+            height={700}   // adjust proportionally
+            className="w-full md:w-4/5 rounded-xl shadow-lg object-contain"
+            />
+
         </motion.div>
       </motion.section>
 

@@ -198,23 +198,27 @@ export default function Navbar() {
                                   <li key={label}>
                                     <Link
                                       href={href}
-                                      className="flex flex-col items-center gap-2 p-4 border border-gray-200 rounded hover:border-blue-700 hover:text-blue-700 transition-colors"
+                                      className="flex flex-col items-center gap-3 p-4 border border-gray-200 rounded hover:border-blue-700 hover:text-blue-700 transition-colors"
                                       role="menuitem"
                                       tabIndex={0}
                                       onClick={() => setOpenDropdown && setOpenDropdown(null)}
                                     >
-                                      <Image
-                                        src={icon}
-                                        alt={`${label} logo`}
-                                        width={82}
-                                        height={58}
-                                        className="shrink-0"
-                                      />
-                                      <span>{label}</span>
+                                      <div className="w-[70px] h-[50px] flex items-center justify-center overflow-hidden">
+                                        <Image
+                                          src={icon}
+                                          alt={`${label} logo`}
+                                          width={90}
+                                          height={70}
+                                          className="object-contain"
+                                        />
+                                      </div>
+
+                                      <span className="text-center">{label}</span>
                                     </Link>
                                   </li>
                                 ))}
                               </ul>
+
                               <Link
                                 href="/OurProducts"
                                 className="mt-2 block text-blue-700 font-semibold hover:underline"
@@ -225,6 +229,7 @@ export default function Navbar() {
                                 View all
                               </Link>
                             </section>
+
                             {/* Industry Focus Section */}
                             <section className="flex-1 bg-gray-100 max-w-sm p-4 rounded-md"  aria-label="Industry Focus">
                               <h4 className="font-bold text-[18px] text-gray-700 mb-3">Industry Focus</h4>
