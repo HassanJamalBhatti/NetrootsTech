@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { 
   FaBrain, 
@@ -5,54 +7,69 @@ import {
   FaCloud, 
   FaUsersCog, 
   FaRocket, 
-  FaLaptopCode 
+  FaLaptopCode,
+  FaCube, 
+  FaCogs
 } from "react-icons/fa";
 
 const services = [
   {
     id: 1,
-    title: "AI & Automation Solutions",
+    title: "Intelligent Automation & AI Solutions",
     description:
-      "Build intelligent workflows, AI-driven apps, automation pipelines, and generative AI tools to accelerate your business.",
+      "Leverage AI, machine learning, and smart automation to optimize operations and enhance customer experiences.",
     icon: <FaBrain size={22} />,
   },
   {
     id: 2,
-    title: "Data Analytics & Business Intelligence",
+    title: "Data Intelligence & Predictive Analytics",
     description:
-      "Turn raw data into insights with dashboards, predictive analytics, and real-time reporting systems.",
+      "Transform your data into actionable insights with real-time analytics, dashboards, and predictive modeling.",
     icon: <FaChartLine size={22} />,
   },
   {
     id: 3,
-    title: "Cloud Engineering & DevOps",
+    title: "Cloud Architecture & Next-Gen Infrastructure",
     description:
-      "Cloud migration, scalable architecture, CI/CD pipelines, and end-to-end cloud-native development.",
+      "Scalable, secure, and flexible cloud solutions to power modern businesses and accelerate digital transformation.",
     icon: <FaCloud size={22} />,
   },
   {
     id: 4,
-    title: "Dedicated Teams & Staff Augmentation",
+    title: "Talent-as-a-Service (Staff Augmentation)",
     description:
-      "Scale your engineering capacity with vetted developers, designers, and project teams ready to join instantly.",
+      "Access top-tier tech talent on demand. Scale your team with skilled developers, designers, and digital specialists.",
     icon: <FaUsersCog size={22} />,
   },
   {
     id: 5,
-    title: "Product Development & MVP Launch",
+    title: "Product Innovation & MVP Launch",
     description:
-      "From idea to launch — we design, build, and ship high-quality digital products and MVPs in record time.",
+      "From ideation to launch, we help bring your product vision to life with agile development and rapid MVP testing.",
     icon: <FaRocket size={22} />,
   },
   {
     id: 6,
-    title: "Digital Growth & Performance Marketing",
+    title: "Growth Marketing & Digital Acceleration",
     description:
-      "SEO, paid ads, brand identity, and full-funnel marketing strategies to grow your digital presence.",
+      "Data-driven marketing strategies, performance campaigns, and brand amplification to maximize ROI.",
     icon: <FaLaptopCode size={22} />,
   },
+  {
+    id: 7,
+    title: "Web3 & App Experiences",
+    description:
+      "Custom websites, mobile apps, and immersive digital experiences designed for engagement, retention, and business impact.",
+    icon: <FaCube size={22} />,
+  },
+  {
+    id: 8,
+    title: "DevOps & Continuous Delivery",
+    description:
+      "Streamline your software development pipelines with CI/CD, cloud-native infrastructure, and automated workflows.",
+    icon: <FaCogs size={22} />,
+  },
 ];
-
 
 export default function Services() {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
