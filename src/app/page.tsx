@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState, useRef } from 'react';
+import dynamic from "next/dynamic";
 import { Inter } from 'next/font/google';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import Navbar from './components/Navbar';
@@ -7,12 +8,14 @@ import Footer from './components/Footer';
 import ContactUs from './components/ContactUs';
 import Technology from './components/Technology';
 import SolutionsPage from './components/Solution';
-import WorkProcess from "./components/WorkProcess";
+import AchievementsSection from "./components/AchievementsSection";
 import WhyChooseUs from "./components/WhyChooseUs";
 import ClientsSection from "./components/ClientsSection";
 import WorkPage from './Work/page';
 import Testimonialspage from './Testimonials/page';
 // import AdvertisementModal from "./components/AdvertisementModal";
+
+const MapSection = dynamic(() => import('./components/MapSection'), { ssr: false });
 import Image from "next/image";
 
 const inter = Inter({ subsets: ['latin'] });
@@ -185,7 +188,7 @@ export default function Home() {
 
           </div>
         </section>
-
+        <ClientsSection />
 
         </SectionWrapper>
 
@@ -194,6 +197,8 @@ export default function Home() {
           <Technology />
         </SectionWrapper>
 
+        <AchievementsSection />
+
         {/* Solutions Section */}
         <SectionWrapper id="solutions">
           <div className="bg-blue-50">
@@ -201,7 +206,7 @@ export default function Home() {
           </div>
         </SectionWrapper>
 
-        <WorkProcess />
+        
         <WhyChooseUs />
 
         {/* Testimonials */}
@@ -218,11 +223,13 @@ export default function Home() {
           </div>
         </SectionWrapper>
 
-        <ClientsSection />
+        
 
         {/* Contact */}
         <SectionWrapper id="contactus">
           <ContactUs />
+          <MapSection />
+
         </SectionWrapper>
       </main>
       {/* <AdvertisementModal /> */}

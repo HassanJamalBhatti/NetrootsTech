@@ -1,29 +1,58 @@
 import React, { useState } from "react";
-import { FaLaptopCode, FaMobileAlt, FaPencilRuler } from "react-icons/fa";
+import { 
+  FaBrain, 
+  FaChartLine, 
+  FaCloud, 
+  FaUsersCog, 
+  FaRocket, 
+  FaLaptopCode 
+} from "react-icons/fa";
 
 const services = [
   {
     id: 1,
-    title: "Website Development",
+    title: "AI & Automation Solutions",
     description:
-      "We build fast, modern, and scalable websites tailored for your business needs.",
-    icon: <FaLaptopCode size={22} />,
+      "Build intelligent workflows, AI-driven apps, automation pipelines, and generative AI tools to accelerate your business.",
+    icon: <FaBrain size={22} />,
   },
   {
     id: 2,
-    title: "Mobile App Development",
+    title: "Data Analytics & Business Intelligence",
     description:
-      "We design and develop smooth, fully-featured apps for iOS & Android.",
-    icon: <FaMobileAlt size={22} />,
+      "Turn raw data into insights with dashboards, predictive analytics, and real-time reporting systems.",
+    icon: <FaChartLine size={22} />,
   },
   {
     id: 3,
-    title: "UI/UX Design",
+    title: "Cloud Engineering & DevOps",
     description:
-      "We craft stunning modern interfaces that deliver a seamless user experience.",
-    icon: <FaPencilRuler size={22} />,
+      "Cloud migration, scalable architecture, CI/CD pipelines, and end-to-end cloud-native development.",
+    icon: <FaCloud size={22} />,
+  },
+  {
+    id: 4,
+    title: "Dedicated Teams & Staff Augmentation",
+    description:
+      "Scale your engineering capacity with vetted developers, designers, and project teams ready to join instantly.",
+    icon: <FaUsersCog size={22} />,
+  },
+  {
+    id: 5,
+    title: "Product Development & MVP Launch",
+    description:
+      "From idea to launch — we design, build, and ship high-quality digital products and MVPs in record time.",
+    icon: <FaRocket size={22} />,
+  },
+  {
+    id: 6,
+    title: "Digital Growth & Performance Marketing",
+    description:
+      "SEO, paid ads, brand identity, and full-funnel marketing strategies to grow your digital presence.",
+    icon: <FaLaptopCode size={22} />,
   },
 ];
+
 
 export default function Services() {
   const [hoveredId, setHoveredId] = useState<number | null>(null);

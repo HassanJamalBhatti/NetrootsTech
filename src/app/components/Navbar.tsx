@@ -21,6 +21,7 @@ const navItems: NavItem[] = [
     items: [
       { label: 'Why Us', href: '/WhyUs' },
       { label: 'Careers', href: '/Careers' },
+      { label: 'About Us', href: '/Aboutus' },
       
     ],
   },
@@ -30,7 +31,6 @@ const navItems: NavItem[] = [
     dropdown: true, 
   },
   { label: 'Get Started', href: '/get-started' },
-  { label: 'Blog', href: '/blog' },
 ];
 
 // Custom hook for detecting clicks outside of a ref element
