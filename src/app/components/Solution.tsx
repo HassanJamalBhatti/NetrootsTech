@@ -1,24 +1,31 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { 
   FaBrain, 
   FaChartLine, 
   FaCloud, 
-  FaUsersCog, 
-  FaRocket, 
-  FaLaptopCode,
-  FaCube, 
-  FaCogs
 } from "react-icons/fa";
 
-const services = [
+// Define service type
+interface ServiceItem {
+  id: number;
+  title: string;
+  description: string;
+  icon: React.ReactElement; // ✅ Fixed type
+  link: string;
+}
+
+// Service data
+const services: ServiceItem[] = [
   {
     id: 1,
     title: "Intelligent Automation & AI Solutions",
     description:
       "Leverage AI, machine learning, and smart automation to optimize operations and enhance customer experiences.",
     icon: <FaBrain size={22} />,
+    link: "/Solutions/ai-automation",
   },
   {
     id: 2,
@@ -26,6 +33,7 @@ const services = [
     description:
       "Transform your data into actionable insights with real-time analytics, dashboards, and predictive modeling.",
     icon: <FaChartLine size={22} />,
+    link: "/Solutions/data-intelligence",
   },
   {
     id: 3,
@@ -33,46 +41,18 @@ const services = [
     description:
       "Scalable, secure, and flexible cloud solutions to power modern businesses and accelerate digital transformation.",
     icon: <FaCloud size={22} />,
+    link: "/Solutions/cloud-architecture",
   },
-  {
-    id: 4,
-    title: "Talent-as-a-Service (Staff Augmentation)",
-    description:
-      "Access top-tier tech talent on demand. Scale your team with skilled developers, designers, and digital specialists.",
-    icon: <FaUsersCog size={22} />,
-  },
-  {
-    id: 5,
-    title: "Product Innovation & MVP Launch",
-    description:
-      "From ideation to launch, we help bring your product vision to life with agile development and rapid MVP testing.",
-    icon: <FaRocket size={22} />,
-  },
-  {
-    id: 6,
-    title: "Growth Marketing & Digital Acceleration",
-    description:
-      "Data-driven marketing strategies, performance campaigns, and brand amplification to maximize ROI.",
-    icon: <FaLaptopCode size={22} />,
-  },
-  {
-    id: 7,
-    title: "Web3 & App Experiences",
-    description:
-      "Custom websites, mobile apps, and immersive digital experiences designed for engagement, retention, and business impact.",
-    icon: <FaCube size={22} />,
-  },
-  {
-    id: 8,
-    title: "DevOps & Continuous Delivery",
-    description:
-      "Streamline your software development pipelines with CI/CD, cloud-native infrastructure, and automated workflows.",
-    icon: <FaCogs size={22} />,
-  },
+  
 ];
 
 export default function Services() {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const router = useRouter();
+
+  const handleClick = (link: string) => {
+    router.push(link);
+  };
 
   return (
     <section className="max-w-7xl mx-auto px-6 py-14">
@@ -89,17 +69,16 @@ export default function Services() {
         </div>
 
         <button
-          onClick={() => window.location.replace("/Solutions")}
+          onClick={() => router.push("/Solutions")}
           className="bg-blue-600 text-white px-5 py-2 rounded-full text-sm hover:bg-blue-700 transition mx-auto sm:mx-0"
         >
           View All Services
         </button>
-
       </div>
 
       {/* Services Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {services.map(({ id, title, description, icon }) => {
+        {services.map(({ id, title, description, icon, link }) => {
           const isActive = hoveredId === id;
 
           return (
@@ -107,11 +86,11 @@ export default function Services() {
               key={id}
               onMouseEnter={() => setHoveredId(id)}
               onMouseLeave={() => setHoveredId(null)}
-              className={`flex flex-col gap-3 bg-white rounded-xl p-6 shadow-md transition-all duration-300  
-                ${
-                  isActive
-                    ? "border border-blue-600 border-b-4 border-b-blue-800 shadow-lg scale-105"
-                    : "border border-transparent hover:shadow-lg hover:scale-105"
+              onClick={() => handleClick(link)}
+              className={`flex flex-col gap-3 bg-white rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer
+                ${isActive
+                  ? "border border-blue-600 border-b-4 border-b-blue-800 shadow-lg scale-105"
+                  : "border border-transparent hover:shadow-lg hover:scale-105"
                 }`}
             >
               {/* Icon */}

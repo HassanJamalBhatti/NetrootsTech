@@ -3,110 +3,86 @@
 import { useParams } from "next/navigation";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import Image from "next/image";
 import Link from "next/link";
+import type { ReactElement } from "react";
+import { 
+  FaBrain, 
+  FaChartLine, 
+  FaCloud, 
+  FaUsersCog, 
+  FaRocket, 
+  FaLaptopCode, 
+  FaCube, 
+  FaCogs 
+} from "react-icons/fa";
 
 interface ServiceType {
   title: string;
-  image: string;
   description: string;
+  icon: ReactElement;
+  link: string;
 }
 
 export default function ServiceDetail() {
   const params = useParams();
-  const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug; // ✅ Ensure slug is string
+  const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug;
 
-  // Service data mapping
   const serviceData: Record<string, ServiceType> = {
-    "google-rank": {
-      title: "Rank #1 on Google",
-      image: "/selution/google-rank.jpg",
+    "ai-automation": {
+      title: "Intelligent Automation & AI Solutions",
       description:
-        "Boost your website visibility and rank at the top of Google search results with our SEO experts.",
+        "Leverage AI, machine learning, and smart automation to optimize operations and enhance customer experiences.",
+      icon: <FaBrain size={28} />,
+      link: "/Solutions/ai-automation",
     },
-    "web-development": {
-      title: "Website Design & Development",
-      image: "/selution/web-dev.jpg",
+    "data-intelligence": {
+      title: "Data Intelligence & Predictive Analytics",
       description:
-        "We craft modern, responsive, and high-performing websites that deliver results.",
+        "Transform your data into actionable insights with real-time analytics, dashboards, and predictive modeling.",
+      icon: <FaChartLine size={28} />,
+      link: "/Solutions/data-intelligence",
     },
-    design: {
-      title: "Designing & Artistry",
-      image: "/selution/design.jpg",
+    "cloud-architecture": {
+      title: "Cloud Architecture & Next-Gen Infrastructure",
       description:
-        "We bring creativity to life through modern design and brand artistry that stands out.",
+        "Scalable, secure, and flexible cloud solutions to power modern businesses and accelerate digital transformation.",
+      icon: <FaCloud size={28} />,
+      link: "/Solutions/cloud-architecture",
     },
-    community: {
-      title: "Community Management",
-      image: "/selution/community.jpg",
+    "staff-augmentation": {
+      title: "Talent-as-a-Service (Staff Augmentation)",
       description:
-        "Engage your audience effectively with our professional community management services.",
+        "Access top-tier tech talent on demand. Scale your team with skilled developers, designers, and digital specialists.",
+      icon: <FaUsersCog size={28} />,
+      link: "/Solutions/staff-augmentation",
     },
-    performance: {
-      title: "Performance Marketing",
-      image: "/selution/performance.jpg",
+    "mvp-launch": {
+      title: "Product Innovation & MVP Launch",
       description:
-        "Drive measurable ROI with our data-driven performance marketing strategies.",
+        "From ideation to launch, we help bring your product vision to life with agile development and rapid MVP testing.",
+      icon: <FaRocket size={28} />,
+      link: "/Solutions/mvp-launch",
     },
-    strategy: {
-      title: "Brand Strategy Development",
-      image: "/selution/strategy.jpg",
+    "growth-marketing": {
+      title: "Growth Marketing & Digital Acceleration",
       description:
-        "We create brand strategies that define, differentiate, and grow your business.",
+        "Data-driven marketing strategies, performance campaigns, and brand amplification to maximize ROI.",
+      icon: <FaLaptopCode size={28} />,
+      link: "/Solutions/growth-marketing",
     },
-    ecommerce: {
-      title: "E-commerce Solutions",
-      image: "/selution/ecommerce.jpg",
+    "web3-apps": {
+      title: "Web3 & App Experiences",
       description:
-        "Sell smarter with our optimized e-commerce solutions designed to increase conversions.",
+        "Custom websites, mobile apps, and immersive digital experiences designed for engagement, retention, and business impact.",
+      icon: <FaCube size={28} />,
+      link: "/Solutions/web3-apps",
     },
-    "content-marketing": {
-      title: "Content Marketing",
-      image: "/selution/content.jpg",
+    "devops-cd": {
+      title: "DevOps & Continuous Delivery",
       description:
-        "Engage your audience with strategic, valuable, and SEO-friendly content marketing.",
-    },
-    "email-marketing": {
-      title: "Email Marketing",
-      image: "/selution/email.jpg",
-      description:
-        "Nurture leads and grow your business with effective email marketing campaigns.",
-    },
-    "social-media": {
-      title: "Social Media Management",
-      image: "/selution/social.jpg",
-      description:
-        "Build your brand presence and engage customers through tailored social media strategies.",
-    },
-    reputation: {
-      title: "Reputation Management",
-      image: "/selution/reputation.jpg",
-      description:
-        "Protect and enhance your online image with our expert reputation management services.",
-    },
-    analytics: {
-      title: "Analytics & Reporting",
-      image: "/selution/analytics.jpg",
-      description:
-        "Gain actionable insights from detailed analytics and performance reports.",
-    },
-    "lead-generation": {
-      title: "Lead Generation",
-      image: "/selution/lead.jpg",
-      description:
-        "Generate high-quality leads that convert through our proven lead generation systems.",
-    },
-    "content-creation": {
-      title: "Content Creation",
-      image: "/selution/content2.jpg",
-      description:
-        "From visuals to videos, we create engaging content that connects with your audience.",
-    },
-    consultancy: {
-      title: "Brand Consultancy",
-      image: "/selution/consultancy.jpg",
-      description:
-        "We provide expert consultancy to refine your brand strategy and digital growth plans.",
+        "Streamline your software development pipelines with CI/CD, cloud-native infrastructure, and automated workflows.",
+      icon: <FaCogs size={28} />,
+      link: "/Solutions/devops-cd",
     },
   };
 
@@ -129,15 +105,20 @@ export default function ServiceDetail() {
 
       <main className="mt-20 px-6 md:px-16 py-12 bg-gradient-to-b from-[#f8faff] to-[#e7ebf5] min-h-screen">
         <div className="max-w-4xl mx-auto text-center">
+          {/* Service Icon */}
+          <div className="flex items-center justify-center mb-6">
+            <div className="p-4 bg-blue-600 text-white rounded-full inline-flex">
+              {service.icon}
+            </div>
+          </div>
+
+          {/* Title & Description */}
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-6">
             {service.title}
           </h1>
-
-          <div className="relative w-full h-64 md:h-96 mb-8 rounded-xl overflow-hidden shadow-lg">
-            <Image src={service.image} alt={service.title} fill className="object-cover" />
-          </div>
-
-          <p className="text-gray-700 text-lg leading-relaxed mb-8">{service.description}</p>
+          <p className="text-gray-700 text-lg leading-relaxed mb-12">
+            {service.description}
+          </p>
         </div>
 
         {/* Pricing Plans Section */}
@@ -150,7 +131,7 @@ export default function ServiceDetail() {
             {["Package 1", "Package 2", "Package 3"].map((pkg, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-xl shadow-lg p-8 border border-gray-200 hover:shadow-2xl transition-all"
+                className="bg-white rounded-xl shadow-lg p-8 border border-gray-200 hover:shadow-2xl transition-all duration-300"
               >
                 <h3 className="text-2xl font-semibold mb-4">{pkg}</h3>
                 <p className="text-gray-500 mb-2 font-medium">
