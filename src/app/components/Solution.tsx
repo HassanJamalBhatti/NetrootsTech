@@ -88,9 +88,13 @@ export default function Services() {
           </h2>
         </div>
 
-        <button className="bg-blue-600 text-white px-5 py-2 rounded-full text-sm hover:bg-blue-700 transition mx-auto sm:mx-0">
+        <button
+          onClick={() => window.location.replace("/Solutions")}
+          className="bg-blue-600 text-white px-5 py-2 rounded-full text-sm hover:bg-blue-700 transition mx-auto sm:mx-0"
+        >
           View All Services
         </button>
+
       </div>
 
       {/* Services Grid */}
