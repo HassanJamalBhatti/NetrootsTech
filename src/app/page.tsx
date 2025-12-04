@@ -127,7 +127,7 @@ export default function Home() {
         {/* Hero / Banner Section */}
       <SectionWrapper id="hero">
         {/* Full section video background */}
-        <div className="absolute inset-0  w-full h-full -z-10 overflow-hidden">
+        <div className="absolute inset-0 w-full h-full -z-10 overflow-hidden">
           <video
             autoPlay
             loop
@@ -138,9 +138,9 @@ export default function Home() {
             <source src="/text.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-           {/* Optional dark overlay for readability  */}
-          <div className="absolute inset-0 bg-black/30"></div> 
+          <div className="absolute inset-0 bg-black/30"></div>
         </div>
+
 
         {/* Hero Section Content */}
         <section
