@@ -1,31 +1,24 @@
 "use client";
 
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
 import { 
   FaBrain, 
   FaChartLine, 
   FaCloud, 
+  FaUsersCog, 
+  FaRocket, 
+  FaLaptopCode,
+  FaCube, 
+  FaCogs
 } from "react-icons/fa";
 
-// Define service type
-interface ServiceItem {
-  id: number;
-  title: string;
-  description: string;
-  icon: React.ReactElement; // ✅ Fixed type
-  link: string;
-}
-
-// Service data
-const services: ServiceItem[] = [
+const services = [
   {
     id: 1,
     title: "Intelligent Automation & AI Solutions",
     description:
       "Leverage AI, machine learning, and smart automation to optimize operations and enhance customer experiences.",
     icon: <FaBrain size={22} />,
-    link: "/Solutions/ai-automation",
   },
   {
     id: 2,
@@ -33,7 +26,6 @@ const services: ServiceItem[] = [
     description:
       "Transform your data into actionable insights with real-time analytics, dashboards, and predictive modeling.",
     icon: <FaChartLine size={22} />,
-    link: "/Solutions/data-intelligence",
   },
   {
     id: 3,
@@ -41,18 +33,11 @@ const services: ServiceItem[] = [
     description:
       "Scalable, secure, and flexible cloud solutions to power modern businesses and accelerate digital transformation.",
     icon: <FaCloud size={22} />,
-    link: "/Solutions/cloud-architecture",
   },
-  
 ];
 
 export default function Services() {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
-  const router = useRouter();
-
-  const handleClick = (link: string) => {
-    router.push(link);
-  };
 
   return (
     <section className="max-w-7xl mx-auto px-6 py-14">
@@ -69,16 +54,17 @@ export default function Services() {
         </div>
 
         <button
-          onClick={() => router.push("/Solutions")}
+          onClick={() => window.location.replace("/Solutions")}
           className="bg-blue-600 text-white px-5 py-2 rounded-full text-sm hover:bg-blue-700 transition mx-auto sm:mx-0"
         >
           View All Services
         </button>
+
       </div>
 
       {/* Services Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {services.map(({ id, title, description, icon, link }) => {
+        {services.map(({ id, title, description, icon }) => {
           const isActive = hoveredId === id;
 
           return (
@@ -86,11 +72,11 @@ export default function Services() {
               key={id}
               onMouseEnter={() => setHoveredId(id)}
               onMouseLeave={() => setHoveredId(null)}
-              onClick={() => handleClick(link)}
-              className={`flex flex-col gap-3 bg-white rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer
-                ${isActive
-                  ? "border border-blue-600 border-b-4 border-b-blue-800 shadow-lg scale-105"
-                  : "border border-transparent hover:shadow-lg hover:scale-105"
+              className={`flex flex-col gap-3 bg-white rounded-xl p-6 shadow-md transition-all duration-300  
+                ${
+                  isActive
+                    ? "border border-blue-600 border-b-4 border-b-blue-800 shadow-lg scale-105"
+                    : "border border-transparent hover:shadow-lg hover:scale-105"
                 }`}
             >
               {/* Icon */}

@@ -152,39 +152,57 @@ export default function ServicesPage() {
         </section>
 
         {/* Services Grid */}
-        <section className="mb-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        <section className="mb-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {services.map(({ id, title, description, icon, link }) => {
             const isActive = hoveredId === id;
             return (
-              <Link
+              <div
                 key={id}
-                href={link}
                 onMouseEnter={() => setHoveredId(id)}
                 onMouseLeave={() => setHoveredId(null)}
-                className={`flex flex-col gap-3 bg-white rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer
-                  ${isActive
-                    ? "border border-blue-600 border-b-4 border-b-blue-800 shadow-lg scale-105"
-                    : "border border-transparent hover:shadow-lg hover:scale-105"
-                  }`}
+                className={`flex flex-col gap-4 bg-white rounded-2xl p-6 shadow-md transition-all duration-500
+                  hover:shadow-xl hover:scale-105 relative`}
               >
-                <div className={`rounded-lg p-3 w-12 h-12 flex items-center justify-center transition-all duration-300
-                  ${isActive ? "bg-blue-700 text-white" : "bg-blue-600 text-white"}`}
+                {/* Icon */}
+                <div
+                  className={`w-14 h-14 flex items-center justify-center rounded-xl text-white transition-all duration-500
+                    ${isActive ? "bg-gradient-to-r from-blue-600 to-blue-500" : "bg-gradient-to-r from-blue-500 to-blue-400"}`}
                 >
                   {icon}
                 </div>
 
-                <h3 className={`font-semibold text-lg transition-all duration-300
+                {/* Title */}
+                <h3 className={`font-semibold text-lg md:text-xl transition-colors duration-300
                   ${isActive ? "text-blue-700" : "text-gray-800"}`}>
                   {title}
                 </h3>
 
-                <p className="text-gray-600 text-sm leading-relaxed">
+                {/* Description */}
+                <p className="text-gray-600 text-sm md:text-base  leading-relaxed flex-1">
                   {description}
                 </p>
-              </Link>
+
+                {/* Divider with blur on sides */}
+                <div className="relative my-3">
+                  <hr className="border-t border-gray-200 absolute inset-x-0 top-1/2 transform -translate-y-1/2" />
+                  <div className="absolute left-0 w-8 h-px bg-white blur-sm rounded-full"></div>
+                  <div className="absolute right-0 w-8 h-px bg-white blur-sm rounded-full"></div>
+                </div>
+
+                {/* Button fixed bottom-right */}
+                <div className="flex justify-end mt-auto">
+                  <Link
+                    href={link}
+                    className="bg-blue-600 text-white px-4 py-1.5 rounded-md text-sm font-medium hover:bg-blue-700 transition-all shadow-sm hover:shadow-md"
+                  >
+                    Choose Your Plan
+                  </Link>
+                </div>
+              </div>
             );
           })}
         </section>
+
 
         {/* Why Choose Us Section */}
         <section className="mt-20 flex flex-col lg:flex-row items-center gap-10 animate-fadeInSlow max-w-7xl mx-auto">

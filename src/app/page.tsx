@@ -13,6 +13,7 @@ import WhyChooseUs from "./components/WhyChooseUs";
 import ClientsSection from "./components/ClientsSection";
 import WorkPage from './Work/page';
 import Testimonialspage from './Testimonials/page';
+import StatsSection from './components/StatsSection';
 // import AdvertisementModal from "./components/AdvertisementModal";
 
 const MapSection = dynamic(() => import('./components/MapSection'), { ssr: false });
@@ -30,7 +31,7 @@ export default function Home() {
     "/LandingPage.png",
     "/LandingPage-1.png",
     "/LandingPage-2.png",
-    "/LandingPage.png",
+    "/LandingPage-3.png",
   ];
 
   const [current, setCurrent] = useState(0);
@@ -189,7 +190,7 @@ export default function Home() {
           </div>
         </section>
         <ClientsSection />
-
+        <StatsSection />
         </SectionWrapper>
 
         {/* Technology Section */}

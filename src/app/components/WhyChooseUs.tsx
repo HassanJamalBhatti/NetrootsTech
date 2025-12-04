@@ -22,9 +22,13 @@ export default function WhyChooseUs() {
               Your IT Needs?
             </h2>
           </div>
-          <button className="bg-blue-600 text-white px-5 py-3 rounded-full text-sm sm:text-base md:text-lg font-medium hover:bg-blue-700 transition">
+          <button
+            onClick={() => window.location.replace("/contectus")}
+            className="bg-blue-600 text-white px-5 py-3 rounded-full text-sm sm:text-base md:text-lg font-medium hover:bg-blue-700 transition"
+          >
             Get A Quote
           </button>
+
         </div>
 
         {/* Main Grid */}
@@ -45,23 +49,23 @@ export default function WhyChooseUs() {
             <div className="grid sm:grid-cols-2 gap-8 lg:gap-10">
               <Feature
                 icon={<FaDollarSign />}
-                title="Affordable Price"
-                description="We provide high-quality IT solutions at competitive rates."
+                title="Fixed Price Projects"
+                description="Our solutions are scalable and can grow with your business, ensuring that you get the most value out of your investment."
               />
               <Feature
                 icon={<FaUsers />}
-                title="Professional Team"
-                description="Our experts ensure every project meets the highest standards."
+                title="Dedicated Team"
+                description="We stay up-to-date with the latest technology trends and offer futuristic solutions that help you stay ahead of the competition."
               />
               <Feature
                 icon={<FaHistory />}
-                title="18+ Years Experience"
-                description="With years of experience, we deliver reliable and efficient IT services."
+                title="Offshore Development Centre"
+                description="We specialize in serving a number of industries, such as healthcare, finance, or manufacturing, and offer custom solutions that meet your unique needs."
               />
               <Feature
                 icon={<FaTrophy />}
                 title="Award Winning"
-                description="Recognized for excellence in delivering top-notch IT solutions."
+                description="Our award-winning solutions reflect our commitment to excellence, innovation, and unmatched quality. Recognized across industries, we consistently deliver results that set new standards of success.."
               />
             </div>
           </div>

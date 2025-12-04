@@ -44,7 +44,7 @@ export default function AchievementsSection() {
           <p className="text-gray-600 mb-6">
             NetRoots Technology combines AI innovation with scalable digital strategies to drive growth and impact.
           </p>
-          <button className="bg-blue-700 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-blue-600 transition-all duration-300">
+          <button  onClick={() => window.location.replace("/contectus")} className="bg-blue-700 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-blue-600 transition-all duration-300">
             Get in Touch
           </button>
         </div>
