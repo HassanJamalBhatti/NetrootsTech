@@ -23,7 +23,7 @@ export default function MapSection() {
         {/* Tag Line */}
         <p className="text-teal-400 font-bold">
           {"// "}
-          <span className="text-black">Geographical Locations</span>
+          <span className="text-black">Offices</span>
         </p>
 
         {/* Heading */}
@@ -37,7 +37,7 @@ export default function MapSection() {
             <GoogleMap
               mapContainerStyle={mapContainerStyle}
               center={center}
-              zoom={2}
+              zoom={3}
             >
               {locations.map((loc, i) => (
                 <Marker key={i} position={loc.position} title={loc.label} />

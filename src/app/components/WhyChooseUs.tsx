@@ -1,6 +1,7 @@
-import { FaDollarSign, FaUsers, FaTrophy, FaHistory } from "react-icons/fa";
+import { FaDollarSign, FaUsers, FaHistory } from "react-icons/fa";
 import Image from "next/image";
 import { Inter } from "next/font/google";
+import React from "react";
 
 // Load Inter font
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
@@ -8,66 +9,65 @@ const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700"] }
 export default function WhyChooseUs() {
   return (
     <section
-      className={`bg-black text-white py-12 sm:py-16 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-32 2xl:px-48 ${inter.className}`}
+      className={`bg-black text-white py-16 px-4 sm:px-8 lg:px-16 2xl:px-24 ${inter.className}`}
     >
       <div className="max-w-7xl mx-auto relative">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-10 sm:mb-12 gap-6">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-14 gap-6">
           <div>
-            <p className="text-teal-500 font-medium mb-2 text-sm sm:text-base">
+            <p className="text-teal-400 font-medium mb-2 text-sm sm:text-base tracking-wide">
               {"//"} <span className="text-white">Why Choose Us</span>
             </p>
-            <h2 className="text-xl sm:text-2xl md:text-3xl xl:text-4xl font-bold leading-tight">
-              Why Trust Us for <br />
-              Your IT Needs?
+
+            <h2 className="text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-bold leading-tight">
+              Engagement Models
             </h2>
           </div>
+
           <button
             onClick={() => window.location.replace("/contectus")}
-            className="bg-blue-600 text-white px-5 py-3 rounded-full text-sm sm:text-base md:text-lg font-medium hover:bg-blue-700 transition"
+            className="bg-blue-600 text-white px-6 py-3 rounded-full text-base font-medium hover:bg-blue-700 shadow-md hover:shadow-lg transition-all duration-300"
           >
             Get A Quote
           </button>
-
         </div>
 
         {/* Main Grid */}
-        <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Left: Image */}
-          <div className="relative rounded-xl overflow-hidden w-full h-56 sm:h-72 md:h-80 lg:h-[420px] xl:h-[450px] 2xl:h-[520px] shadow-lg">
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Left Image */}
+          <div className="relative w-full h-60 sm:h-80 lg:h-[380px] xl:h-[430px] rounded-2xl overflow-hidden shadow-2xl">
             <Image
               src="/team-meeting.jpg"
-              alt="Team high five"
-              width={600}
-              height={400}
-              className="object-cover w-full h-full rounded-xl"
+              alt="Team meeting"
+              width={800}
+              height={600}
+              className="w-full h-full object-cover rounded-2xl"
             />
           </div>
 
-          {/* Right: Features */}
+
+          {/* Right Features */}
           <div className="space-y-10">
-            <div className="grid sm:grid-cols-2 gap-8 lg:gap-10">
-              <Feature
-                icon={<FaDollarSign />}
-                title="Fixed Price Projects"
-                description="Our solutions are scalable and can grow with your business, ensuring that you get the most value out of your investment."
-              />
-              <Feature
-                icon={<FaUsers />}
-                title="Dedicated Team"
-                description="We stay up-to-date with the latest technology trends and offer futuristic solutions that help you stay ahead of the competition."
-              />
-              <Feature
-                icon={<FaHistory />}
-                title="Offshore Development Centre"
-                description="We specialize in serving a number of industries, such as healthcare, finance, or manufacturing, and offer custom solutions that meet your unique needs."
-              />
-              <Feature
-                icon={<FaTrophy />}
-                title="Award Winning"
-                description="Our award-winning solutions reflect our commitment to excellence, innovation, and unmatched quality. Recognized across industries, we consistently deliver results that set new standards of success.."
-              />
-            </div>
+            <Feature
+              number="01"
+              icon={<FaDollarSign />}
+              title="Fixed Price Projects"
+              description="Our solutions are scalable and can grow with your business, ensuring that you get the most value out of your investment."
+            />
+
+            <Feature
+              number="02"
+              icon={<FaUsers />}
+              title="Dedicated Team"
+              description="We stay up-to-date with the latest technology trends and offer futuristic solutions that help you stay ahead of the competition."
+            />
+
+            <Feature
+              number="03"
+              icon={<FaHistory />}
+              title="Offshore Development Centre"
+              description="We specialize in serving a number of industries, such as healthcare, finance, or manufacturing, and offer custom solutions that meet your unique needs."
+            />
           </div>
         </div>
       </div>
@@ -75,23 +75,29 @@ export default function WhyChooseUs() {
   );
 }
 
-// Reusable Feature component
-function Feature({
-  icon,
-  title,
-  description,
-}: {
+// -------------------- Reusable Component --------------------
+
+interface FeatureProps {
+  number: string;
   icon: React.ReactNode;
   title: string;
   description: string;
-}) {
+}
+
+function Feature({ number, icon, title, description }: FeatureProps) {
   return (
-    <div className="flex flex-col items-start space-y-2">
-      <div className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl">{icon}</div>
-      <h3 className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl">
-        {title}
-      </h3>
-      <p className="text-gray-400 text-xs sm:text-sm lg:text-base">{description}</p>
+    <div className="flex items-start gap-5">
+      <div className="text-teal-400 font-bold text-2xl md:text-3xl">{number}.</div>
+
+      <div className="flex flex-col space-y-2">
+        <div className="text-3xl md:text-4xl ">{icon}</div>
+
+        <h3 className="font-semibold text-lg md:text-xl">{title}</h3>
+
+        <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+          {description}
+        </p>
+      </div>
     </div>
   );
 }

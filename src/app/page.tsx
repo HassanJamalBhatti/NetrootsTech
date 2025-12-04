@@ -125,26 +125,28 @@ export default function Home() {
 
       <main className="relative">
         {/* Hero / Banner Section */}
-        <SectionWrapper id="hero">
-        <section
-          className={`${inter.className} relative mt-20 flex flex-row items-center justify-center min-h-[90vh] px-6 md:px-20 overflow-hidden`}
-        >
-          {/* Centered Container with max-w-7xl */}
-          <div className="w-full max-w-7xl mx-auto relative">
-            
-            {/* Background Rotating Images */}
-            {images.map((img, index) => (
-              <div
-                key={index}
-                className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000`}
-                style={{
-                  backgroundImage: `url(${img})`,
-                  opacity: current === index ? 1 : 0,
-                }}
-              />
-            ))}
+      <SectionWrapper id="hero">
+        {/* Full section video background */}
+        <div className="absolute inset-0  w-full h-full -z-10 overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-[720px] object-cover"
+          >
+            <source src="/text.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+           {/* Optional dark overlay for readability  */}
+          <div className="absolute inset-0 bg-black/30"></div> 
+        </div>
 
-            {/* Content */}
+        {/* Hero Section Content */}
+        <section
+          className={`${inter.className} relative mt-20 flex flex-row items-center justify-center min-h-[90vh] px-6 md:px-20`}
+        >
+          <div className="w-full max-w-7xl mx-auto relative">
             <motion.div
               className="relative z-10 flex flex-col gap-6 max-w-xl text-left"
               initial={{ opacity: 0, x: -80 }}
@@ -152,18 +154,18 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <p className="text-sm md:text-base text-black">
+              <p className="text-sm md:text-base text-white">
                 Experience the Best IT Services in the World.
               </p>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-black">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-white">
                 Driving Business <br />
                 Growth with <br />
                 Scalable Digital <br />
                 Solutions!
               </h1>
 
-              <p className="text-sm md:text-base text-black/90">
+              <p className="text-sm md:text-base text-white/90">
                 We seamlessly blend creative marketing strategies with novel
                 solutions that help businesses grow, connect, and thrive in their
                 niche.
@@ -186,12 +188,14 @@ export default function Home() {
                 </button>
               </div>
             </motion.div>
-
           </div>
         </section>
+
+        {/* Other sections */}
         <ClientsSection />
         <StatsSection />
-        </SectionWrapper>
+      </SectionWrapper>
+
 
         {/* Technology Section */}
         <SectionWrapper id="technology">
