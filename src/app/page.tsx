@@ -175,14 +175,14 @@ export default function Home() {
               <div className="flex flex-row flex-wrap gap-4 mt-4">
                 <button
                   onClick={() => window.location.replace('/contectus')}
-                  className="bg-blue-600 hover:bg-blue-700 text-white font-semibold sm:text-[12px] md:text-sm px-5 py-2.5 rounded-full transition-all shadow-md"
+                  className="bg-blue-600 hover:bg-blue-700 cursor-pointer text-white font-semibold sm:text-[12px] md:text-sm px-5 py-2.5 rounded-full transition-all shadow-md"
                 >
                   Book a Strategy Call
                 </button>
 
                 <button
                   onClick={() => scrollTo('technology')}
-                  className="bg-white/90 hover:bg-white text-blue-700 font-semibold sm:text-[12px] md:text-sm px-5 py-2.5 rounded-full transition-all shadow-md"
+                  className="bg-white/90 hover:bg-white cursor-pointer text-blue-700 font-semibold sm:text-[12px] md:text-sm px-5 py-2.5 rounded-full transition-all shadow-md"
                 >
                   Check Our Expertise
                 </button>

@@ -23,29 +23,69 @@ export default function ClientsSection() {
     { name: "MA", logo: "/clients/A7.png", width: 120, height: 80 },
     { name: "BS", logo: "/clients/A8.png", width: 120, height: 80 },
     { name: "BF", logo: "/clients/A18.png", width: 120, height: 80 },
+    { name: "NHS", logo: "/clients/NHS.png", width: 120, height: 80 },
+    { name: "TuvausTria", logo: "/clients/tuvaustria.png", width: 180, height: 80 },
+    { name: "USP", logo: "/clients/USP.png", width: 180, height: 80 },
+    { name: "Times Institute", logo: "/clients/timesInstitute.png", width: 180, height: 80 },
+    { name: "HE", logo: "/clients/HE.png", width: 180, height: 80 },
+    { name: "BabyMaster", logo: "/clients/BabyMaster.png", width: 180, height: 80 },
+    { name: "ONEZCOMMERE", logo: "/clients/ONEZCOMMERE.png", width: 180, height: 80 },
+    { name: "CornersTone", logo: "/clients/Cornerstone.png", width: 180, height: 80 },
+    { name: "OAG", logo: "/clients/OAG.png", width: 180, height: 80 },
+    { name: "LHRSCLLAW", logo: "/clients/LHRSCLLAW.png", width: 180, height: 80 },
+    { name: "HapiNapi", logo: "/clients/HapiNapi.png", width: 180, height: 80 },
+    { name: "Mercedes", logo: "/clients/Mercedes.png", width: 180, height: 80 },
+    { name: "SouthToday", logo: "/clients/southtoday.png", width: 180, height: 80 },
+    { name: "Zapple", logo: "/clients/zapple.png", width: 180, height: 80 },
+    { name: "AGW", logo: "/clients/AGW.png", width: 180, height: 80 },
   ];
 
-  const repeatedClients = [...clients, ...clients];
+  // Duplicate for seamless loop (common marquee pattern)
+  const duplicatedClients = [...clients, ...clients];
 
   return (
     <section className="w-full bg-blue-50 text-blue-900 py-20 font-sans overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6">
-        <p className="text-teal-600 md:ml-16 font-medium">{'// '}<span className="text-black">Clients</span></p>
-        <h2 className="text-4xl md:ml-16 font-semibold mt-3 mb-12">Some of Our Trusted Clients</h2>
+        <p className="text-teal-600 md:ml-16 font-medium">
+          {'// '}<span className="text-black">Clients</span>
+        </p>
+        <h2 className="text-4xl md:text-5xl md:ml-16 font-semibold mt-3 mb-12">
+          Some of Our Trusted Clients
+        </h2>
 
-        <div className="relative overflow-hidden">
+        <div className="relative">
+          {/* Top Row - Left to Right */}
           <div className="flex animate-marquee whitespace-nowrap">
-            {repeatedClients.map((client, index) => (
+            {duplicatedClients.map((client, index) => (
               <div
-                key={index}
+                key={`top-${index}`}
                 className="bg-white rounded-lg w-56 h-24 flex items-center justify-center shadow-lg mx-4 flex-shrink-0 transition-transform hover:scale-105"
               >
                 <Image
                   src={client.logo}
-                  alt={client.name}
+                  alt={`${client.name} logo`}
                   width={client.width}
                   height={client.height}
-                  className="object-contain"
+                  className="object-contain max-w-[85%] max-h-[70%]"
+                  priority={index < clients.length} // Optional: prioritize first set
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom Row - Right to Left */}
+          <div className="flex animate-marquee-reverse whitespace-nowrap mt-10">
+            {duplicatedClients.map((client, index) => (
+              <div
+                key={`bottom-${index}`}
+                className="bg-white rounded-lg w-56 h-24 flex items-center justify-center shadow-lg mx-4 flex-shrink-0 transition-transform hover:scale-105"
+              >
+                <Image
+                  src={client.logo}
+                  alt={`${client.name} logo`}
+                  width={client.width}
+                  height={client.height}
+                  className="object-contain max-w-[85%] max-h-[70%]"
                 />
               </div>
             ))}
@@ -55,13 +95,29 @@ export default function ClientsSection() {
 
       <style jsx>{`
         @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-455%); }
+          from {
+            transform: translateX(0%);
+          }
+          to {
+            transform: translateX(-1100%);
+          }
         }
+
+        @keyframes marquee-reverse {
+          from {
+            transform: translateX(-1100%);
+          }
+          to {
+            transform: translateX(0%);
+          }
+        }
+
         .animate-marquee {
-          display: flex;
-          gap: 2rem;
-          animation: marquee 120s linear infinite;
+          animation: marquee 180s linear infinite;
+        }
+
+        .animate-marquee-reverse {
+          animation: marquee-reverse 180s linear infinite;
         }
       `}</style>
     </section>
