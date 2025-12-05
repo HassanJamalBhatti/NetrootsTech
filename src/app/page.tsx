@@ -133,11 +133,21 @@ export default function Home() {
             loop
             muted
             playsInline
-            className="w-full h-[720px] object-cover"
+            className="w-full h-[720px] object-cover filter blur-lg brightness-50 animate-[reveal_10s_ease-in-out_forwards]"
           >
             <source src="/text.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
           </video>
+
+          <style jsx>{`
+            @keyframes reveal {
+              0% {
+                filter: blur(25px) brightness(30%);
+              }
+              100% {
+                filter: blur(0px) brightness(100%);
+              }
+            }
+          `}</style>
           <div className="absolute inset-0 bg-black/30"></div>
         </div>
 
