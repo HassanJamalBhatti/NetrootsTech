@@ -46,9 +46,7 @@ export default function ClientsSection() {
   return (
     <section className="w-full bg-blue-50 text-blue-900 py-20 font-sans overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6">
-        <p className="text-teal-600 md:ml-16 font-medium">
-          {'// '}<span className="text-black">Clients</span>
-        </p>
+        
         <h2 className="text-4xl md:text-5xl md:ml-16 font-semibold mt-3 mb-12">
           Some of Our Trusted Clients
         </h2>

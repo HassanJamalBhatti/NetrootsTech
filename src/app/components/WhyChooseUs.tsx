@@ -15,9 +15,7 @@ export default function WhyChooseUs() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-14 gap-6">
           <div>
-            <p className="text-teal-400 font-medium mb-2 text-sm sm:text-base tracking-wide">
-              {"//"} <span className="text-white">Why Choose Us</span>
-            </p>
+           
 
             <h2 className="text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-bold leading-tight">
               Engagement Models
@@ -26,7 +24,7 @@ export default function WhyChooseUs() {
 
           <button
             onClick={() => window.location.replace("/contectus")}
-            className="bg-blue-600 text-white px-6 py-3 rounded-full text-base font-medium hover:bg-blue-700 shadow-md hover:shadow-lg transition-all duration-300"
+            className="bg-blue-600 text-white px-6 py-3 rounded-full cursor-pointer text-base font-medium hover:bg-blue-700 shadow-md hover:shadow-lg transition-all duration-300"
           >
             Get A Quote
           </button>

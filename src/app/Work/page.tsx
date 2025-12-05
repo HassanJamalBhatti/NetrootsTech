@@ -69,9 +69,7 @@ export default function TestimonialCarousel() {
   return (
     <section className="py-16 bg-[#f9f9f9]">
       <div className="text-center mb-12">
-        <p className="text-[#00C4B4] font-semibold mb-2">
-          {"//"} <span className="text-[#123456]">Testimonials</span>
-        </p>
+        
         <h2 className="text-3xl md:text-4xl font-bold">
           Trusted by Our Clients
           <span className="text-[#0070F3]"> Worldwide</span>

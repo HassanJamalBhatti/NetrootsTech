@@ -39,9 +39,7 @@ export default function Services() {
       {/* Top Section */}
       <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-8 gap-4">
         <div>
-          <p className="font-semibold">
-            <span className="text-teal-500">{'//'}</span> Our Services
-          </p>
+          
           <h2 className="text-3xl font-bold leading-snug">
             Services We Provide to <br />
             <span className="text-blue-600">Elevate Your Business</span>
@@ -50,7 +48,7 @@ export default function Services() {
 
         <button
           onClick={() => window.location.replace("/Solutions")}
-          className="bg-blue-600 text-white px-5 py-2 rounded-full text-sm hover:bg-blue-700 transition mx-auto sm:mx-0"
+          className="bg-blue-600 text-white px-5 py-2 rounded-full cursor-pointer text-sm hover:bg-blue-700 transition mx-auto sm:mx-0"
         >
           View All Services
         </button>

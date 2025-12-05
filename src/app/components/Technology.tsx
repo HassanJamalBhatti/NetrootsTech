@@ -348,10 +348,7 @@ const renderStars = (value: number) => {
           {/* Content Section */}
           <div className="w-full lg:w-1/2 max-w-xl mr-8 mx-auto">
 
-            {/* Label */}
-            <p className="text-sm font-semibold mb-2">
-              <span className="text-teal-500">{'//'}</span> Tools & Technologies
-            </p>
+           
 
             {/* Heading */}
             <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4 leading-tight">
@@ -377,7 +374,7 @@ const renderStars = (value: number) => {
                       ${
                         isSelected
                           ? "bg-blue-600 text-white shadow-md"
-                          : "bg-gray-100 text-gray-700 hover:bg-blue-100 hover:text-blue-600"
+                          : "bg-gray-100 text-gray-700 cursor-pointer hover:bg-blue-100 hover:text-blue-600"
                       }
                     `}
                   >

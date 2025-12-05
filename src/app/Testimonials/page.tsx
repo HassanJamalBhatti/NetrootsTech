@@ -52,7 +52,6 @@ export default function NewsAndBlogs() {
     <main className="bg-white py-16 px-6 sm:px-10 lg:px-20 text-gray-900">
       {/* Section Header */}
       <div className="text-center mb-12">
-        <p className="text-sm font-medium text-teal-500">{'//'} <span className="text-black">News & Blogs</span></p>
         <h2 className="mt-2 text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900">
           Our Latest <span className="text-blue-600">News & Blogs</span>
         </h2>

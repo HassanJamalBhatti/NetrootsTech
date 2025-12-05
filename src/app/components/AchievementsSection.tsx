@@ -31,10 +31,7 @@ export default function AchievementsSection() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
         {/* Left Side */}
         <div className="flex-1">
-          <p className="tracking-wider font-semibold text-gray-900 mb-3 text-sm ">
-            <span className="text-teal-600">{'// '}</span>
-            Intelligent AI Solutions
-          </p>
+          
           <h2 className="text-3xl md:text-4xl font-bold mb-5 text-black">
             NetRoots Technology <br /><span className="text-blue-600" >Achievements</span>
           </h2>
@@ -44,7 +41,7 @@ export default function AchievementsSection() {
           <p className="text-gray-600 mb-6">
             NetRoots Technology combines AI innovation with scalable digital strategies to drive growth and impact.
           </p>
-          <button  onClick={() => window.location.replace("/contectus")} className="bg-blue-700 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-blue-600 transition-all duration-300">
+          <button  onClick={() => window.location.replace("/contectus")} className="bg-blue-700 cursor-pointer text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-blue-600 transition-all duration-300">
             Get in Touch
           </button>
         </div>
