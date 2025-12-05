@@ -14,12 +14,13 @@ const containerStyle = {
   boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
 };
 
-const center = { lat: 30.3753, lng: 69.3451 };
+const center = { lat: 40.4637, lng: -3.7492 };
 
 const locations = [
-  { id: 1, name: "Lahore, Pakistan", position: { lat: 31.5204, lng: 74.3587 }, flag: "PK" },
-  { id: 2, name: "Dublin, Ireland", position: { lat: 53.3498, lng: -6.2603 }, flag: "IE" },
-  { id: 3, name: "Pennsylvania, USA", position: { lat: 41.2033, lng: -77.1945 }, flag: "US" },
+    { id: 1, name: "Pennsylvania, USA", position: { lat: 41.2033, lng: -77.1945 }, flag: "US" },
+    { id: 2, name: "Dublin, Ireland", position: { lat: 53.3498, lng: -6.2603 }, flag: "IE" },
+    { id: 3, name: "Lahore, Pakistan", position: { lat: 31.5204, lng: 74.3587 }, flag: "PK" },
+  
 ];
 
 export default function GeographicalMap() {
@@ -35,19 +36,14 @@ export default function GeographicalMap() {
         </svg>
       `)}`,
       scaledSize: { width: 40, height: 40 } as google.maps.Size, 
-      anchor: { x: 20, y: 20 } as google.maps.Point,
+      anchor: { x: 30, y: 20 } as google.maps.Point,
     });
   }, []);
 
   return (
     <section className="py-20 px-4 bg-gradient-to-b from-slate-50 to-white">
       <div className="max-w-7xl mx-auto">
-        <div className="text-left md:ml-10">
-        <p className="text-teal-400 font-bold">
-          {"// "}
-          <span className="text-black">Offices</span>
-        </p>
-
+        <div className="text-center md:ml-10">
         {/* Heading */}
         <h1 className="text-4xl md:text-5xl font-semibold  mt-2 leading-tight">
           Our Offices and <span className="text-blue-600">Operations</span> Around the World!
@@ -59,7 +55,7 @@ export default function GeographicalMap() {
             <GoogleMap
               mapContainerStyle={containerStyle}
               center={center}
-              zoom={5}
+              zoom={3}
               options={{
                 zoomControl: true,
                 streetViewControl: false,

@@ -116,6 +116,23 @@ export default function ContactPage() {
                   <option>Web Development</option>
                   <option>Digital Marketing</option>
                   <option>Branding</option>
+                  <option>SEO Optimization</option>
+                  <option>Graphic Design</option>
+                  <option>Content Writing</option>
+                  <option>Social Media Management</option>
+                  <option>Mobile App Development</option>
+                  <option>UI/UX Design</option>
+                  <option>eCommerce Solutions</option>
+                  <option>Email Marketing</option>
+                  <option>Video Production</option>
+                  <option>Pay Per Click (PPC)</option>
+                  <option>Influencer Marketing</option>
+                  <option>Market Research</option>
+                  <option>Cloud Solutions</option>
+                  <option>IT Consulting</option>
+                  <option>Web Hosting</option>
+                  <option>Cybersecurity</option>
+                  <option>Analytics & Reporting</option>
                 </select>
               </div>
             </div>

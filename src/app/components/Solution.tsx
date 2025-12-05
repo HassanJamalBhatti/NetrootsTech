@@ -5,11 +5,6 @@ import {
   FaBrain, 
   FaChartLine, 
   FaCloud, 
-  FaUsersCog, 
-  FaRocket, 
-  FaLaptopCode,
-  FaCube, 
-  FaCogs
 } from "react-icons/fa";
 
 const services = [
