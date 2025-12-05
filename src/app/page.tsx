@@ -133,13 +133,16 @@ export default function Home() {
             loop
             muted
             playsInline
-            className="w-full h-[720px] object-cover filter blur-lg brightness-50 animate-[reveal_10s_ease-in-out_forwards]"
+            className="w-full h-[720px] object-cover will-change-[filter] animate-videoReveal"
           >
+            <source src="/text.webm" type="video/webm" />
             <source src="/text.mp4" type="video/mp4" />
           </video>
 
+          <div className="absolute inset-0 bg-black/30"></div>
+
           <style jsx>{`
-            @keyframes reveal {
+            @keyframes videoReveal {
               0% {
                 filter: blur(25px) brightness(30%);
               }
@@ -147,11 +150,12 @@ export default function Home() {
                 filter: blur(0px) brightness(100%);
               }
             }
+
+            .animate-videoReveal {
+              animation: videoReveal 10s ease-in-out forwards;
+            }
           `}</style>
-          <div className="absolute inset-0 bg-black/30"></div>
         </div>
-
-
         {/* Hero Section Content */}
         <section
           className={`${inter.className} relative mt-20 flex flex-row items-center justify-center min-h-[90vh] px-6 md:px-20`}
