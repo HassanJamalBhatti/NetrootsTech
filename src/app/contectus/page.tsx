@@ -87,8 +87,9 @@ export default function ContactUsPage() {
 
       {/* Contact Section */}
       <main className="px-4 sm:px-8 md:px-20 py-8 space-y-16">
-        <MapSection />
+        
         <ContactUs />
+        <MapSection />
       </main>
 
       <Footer />
