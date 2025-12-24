@@ -1,11 +1,13 @@
 "use client";
 
 import { Inter } from "next/font/google";
-import { FaCheckCircle, FaChevronRight } from "react-icons/fa"; 
+import { FaCheckCircle, FaChevronRight } from "react-icons/fa";
 import Select from "react-select";
 import React, { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
+
+/* -------------------- DATA -------------------- */
 const countryCodes = [
   { code: "+93", name: "Afghanistan" },
   { code: "+355", name: "Albania" },
@@ -250,43 +252,46 @@ interface ServiceOption {
   label: string;
 }
 
-
-// Prepare options for react-select
-const countryOptions = countryCodes.map(c => ({
+const countryOptions = countryCodes.map((c) => ({
   value: c.code,
   label: `${c.code} ${c.name}`,
 }));
 
-  
-
+/* -------------------- COMPONENT -------------------- */
 export default function ContactPage() {
-  
   const [selectedServices, setSelectedServices] = useState<ServiceOption[]>([]);
-  const [selectedCountry, setSelectedCountry] = useState<CountryOption | null>(null);
-  return (
-    <div className={`${inter.className} w-full flex justify-center py-16 px-6`}>
-      <div className="max-w-7xl w-full grid md:grid-cols-2 gap-10">
+  const [selectedCountry, setSelectedCountry] =
+    useState<CountryOption | null>(null);
 
-        {/* LEFT CARD */}
-        <div className="bg-black text-white rounded-2xl p-10">
-          <h2 className="text-xl font-semibold">
-            Partner with Us for Comprehensive <br /> IT & Digital Marketing Solutions
+  return (
+    <div className={`${inter.className} w-full flex justify-center py-16 px-4`}>
+      <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-10">
+
+        {/* ================= LEFT CARD ================= */}
+        <div className="bg-black text-white rounded-2xl p-8 md:p-10">
+          <h2 className="text-lg md:text-xl font-semibold leading-relaxed">
+            Partner with Us for Comprehensive <br className="hidden md:block" />
+            IT & Digital Marketing Solutions
           </h2>
 
-          <p className="text-gray-300 mt-4 leading-relaxed">
-            Get in touch & let’s start crafting solutions that drive your business forward.
+          <p className="text-gray-300 mt-4 leading-relaxed text-sm md:text-base">
+            Get in touch & let’s start crafting solutions that drive your
+            business forward.
           </p>
 
-          <p className="mt-6 font-semibold">
-            Email us at :{" "}
-            <span className="text-gray-200 font-normal">business@netrootstech.com</span>
+          <p className="mt-6 font-semibold text-sm md:text-base">
+            Email us at :
+            <span className="text-gray-200 font-normal block md:inline">
+              {" "}
+              business@netrootstech.com
+            </span>
           </p>
 
           {/* BENEFITS */}
-          <div className="mt-10">
+          <div className="mt-8">
             <h3 className="font-bold text-lg">Your Benefits</h3>
 
-            <div className="grid grid-cols-2 gap-y-4 mt-4 text-gray-300">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 mt-4 text-gray-300">
               {[
                 "Client-oriented",
                 "Results-Driven",
@@ -295,26 +300,26 @@ export default function ContactPage() {
                 "Competent",
                 "Transparent",
               ].map((item, idx) => (
-                <p key={idx} className="flex items-center gap-3">
-                  <FaCheckCircle className="text-teal-400" />
-                  <span className="text-gray-200 font-normal">{item}</span>
+                <p key={idx} className="flex items-center gap-3 text-sm">
+                  <FaCheckCircle className="text-teal-400 shrink-0" />
+                  {item}
                 </p>
               ))}
             </div>
           </div>
 
           {/* WHAT'S NEXT */}
-          <div className="mt-10">
+          <div className="mt-8">
             <h3 className="font-bold text-lg">What’s Next?</h3>
 
-            <ul className="mt-4 space-y-4 text-gray-300">
+            <ul className="mt-4 space-y-3 text-gray-300 text-sm">
               {[
-                "1. We schedule a call at your convenience.",
-                "2. We do a discovery & consulting meeting.",
-                "3. We prepare a proposal."
+                "We schedule a call at your convenience.",
+                "We do a discovery & consulting meeting.",
+                "We prepare a proposal.",
               ].map((text, idx) => (
-                <li key={idx} className="flex items-start gap-3">
-                  <FaChevronRight className="text-teal-400 mt-1" />
+                <li key={idx} className="flex gap-3">
+                  <FaChevronRight className="text-teal-400 mt-1 shrink-0" />
                   {text}
                 </li>
               ))}
@@ -322,173 +327,94 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* RIGHT FORM */}
+        {/* ================= RIGHT FORM ================= */}
         <div>
-          <h1 className="text-4xl font-semibold mt-2">
+          <h1 className="text-3xl md:text-4xl font-semibold">
             Get your <span className="text-blue-600">Free Quote</span> Today!
           </h1>
 
-          <form className="mt-10 space-y-6">
+          <form className="mt-8 space-y-6">
 
             {/* NAME + EMAIL */}
-            <div className="grid md:grid-cols-2 gap-5">
-              
-              {/* Name */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
-                <label className="block mb-2 text-sm font-medium text-gray-800">
+                <label className="block mb-2 text-sm font-medium">
                   Your Name
                 </label>
                 <input
                   type="text"
                   placeholder="Eg. John Doe"
-                  className="w-full bg-gray-100 border border-gray-300 rounded-xl px-4 py-3 
-                            text-gray-700 placeholder-gray-500 cursor-text 
-                            focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 
-                            transition"
+                  className="w-full bg-gray-100 border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500"
                 />
               </div>
 
-              {/* Email */}
               <div>
-                <label className="block mb-2 text-sm font-medium text-gray-800">
+                <label className="block mb-2 text-sm font-medium">
                   Your Email
                 </label>
                 <input
                   type="email"
                   placeholder="example@gmail.com"
-                  className="w-full bg-gray-100 border border-gray-300 rounded-xl px-4 py-3 
-                            text-gray-700 placeholder-gray-500 cursor-text 
-                            focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 
-                            transition"
+                  className="w-full bg-gray-100 border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500"
                 />
               </div>
             </div>
-            {/* Phone Section */}
+
+            {/* PHONE */}
             <div>
-              <label htmlFor="phone" className="block mb-2 text-sm font-medium text-gray-800">
-                Phone
-              </label>
-              <div className="flex gap-3 items-center">
-                {/* Searchable Country Code */}
-                <div className="w-40">
+              <label className="block mb-2 text-sm font-medium">Phone</label>
+              <div className="flex gap-3">
+                <div className="w-36">
                   <Select
                     options={countryOptions}
                     value={selectedCountry}
-                    onChange={(option) => setSelectedCountry(option)}
-                    className="react-select-container"
-                    classNamePrefix="react-select"
-                    isSearchable
+                    onChange={(opt) => setSelectedCountry(opt)}
                     placeholder="Code"
-                    styles={{
-                      control: (provided, state) => ({
-                        ...provided,
-                        backgroundColor: "#f3f4f6", 
-                        borderRadius: "0.75rem", 
-                        borderColor: state.isFocused ? "#0062ffff" : "#d1d5db", 
-                        minHeight: "3rem",
-                        boxShadow: state.isFocused ? "0 0 0 2px #0062ffff" : "none",
-                      }),
-                      option: (provided, state) => ({
-                        ...provided,
-                        backgroundColor: state.isFocused ? "#bfdbfe" : "white", 
-                        color: state.isSelected ? "#0062ffff" : "black",
-                      }),
-                      menu: (provided) => ({
-                        ...provided,
-                        borderRadius: "0.75rem",
-                        overflow: "hidden",
-                      }),
-                    }}
                   />
                 </div>
-
-                {/* Phone Number Input */}
                 <input
-                  id="phone"
                   type="text"
-                  placeholder="Enter Phone Number"
-                  className="flex-1 bg-gray-100 border border-gray-300 rounded-xl px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition placeholder-gray-400"
+                  placeholder="Phone number"
+                  className="flex-1 bg-gray-100 border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500"
                 />
               </div>
             </div>
-            {/* Service Section */}
+
+            {/* SERVICE */}
             <div>
-              <label
-                htmlFor="service"
-                className="block mb-2 text-sm font-medium text-gray-800"
-              >
+              <label className="block mb-2 text-sm font-medium">
                 Service
               </label>
-
               <Select
-                id="service"
                 options={serviceOptions}
                 value={selectedServices}
-                onChange={(selected) =>
-                  setSelectedServices((selected ?? []) as ServiceOption[])
+                onChange={(s) =>
+                  setSelectedServices((s ?? []) as ServiceOption[])
                 }
                 isMulti
-                isSearchable
                 placeholder="Select Services"
-                className="react-select-container"
-                classNamePrefix="react-select"
-                styles={{
-                  control: (provided, state) => ({
-                    ...provided,
-                    backgroundColor: "#f3f4f6",
-                    borderRadius: "0.75rem",
-                    borderColor: state.isFocused ? "#3b82f6" : "#d1d5db",
-                    minHeight: "3rem",
-                    boxShadow: state.isFocused ? "0 0 0 2px #3b82f6" : "none",
-                  }),
-
-                  option: (provided, state) => ({
-                    ...provided,
-                    backgroundColor: state.isFocused ? "#bfdbfe" : "white",
-                    color: state.isSelected ? "white" : "black",
-                  }),
-
-                  multiValue: (provided) => ({
-                    ...provided,
-                    backgroundColor: "#3b82f6",
-                    color: "white",
-                    borderRadius: "0.5rem",
-                  }),
-
-                  multiValueLabel: (provided) => ({
-                    ...provided,
-                    color: "white",
-                  }),
-
-                  multiValueRemove: (provided) => ({
-                    ...provided,
-                    color: "white",
-                    ":hover": {
-                      backgroundColor: "#2563eb",
-                      color: "white",
-                    },
-                  }),
-                }}
               />
             </div>
+
             {/* MESSAGE */}
             <div>
-              <label className="block mb-2 text-sm text-black">Your Message</label>
+              <label className="block mb-2 text-sm font-medium">
+                Your Message
+              </label>
               <textarea
-                rows={5}
+                rows={4}
                 placeholder="Enter here..."
-                className="w-full flex-1 bg-gray-100 border border-gray-300 rounded-xl px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition placeholder-gray-400"
-              ></textarea>
+                className="w-full bg-gray-100 border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500"
+              />
             </div>
 
             {/* SUBMIT */}
             <button
               type="submit"
-              className="bg-blue-600 text-white px-8 py-3 rounded-xl font-medium hover:bg-blue-700 transition"
+              className="w-full md:w-auto bg-blue-600 text-white px-10 py-3 rounded-xl hover:bg-blue-700 transition"
             >
               Submit
             </button>
-
           </form>
         </div>
       </div>
