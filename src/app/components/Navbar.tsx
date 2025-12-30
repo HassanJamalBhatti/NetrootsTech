@@ -22,15 +22,14 @@ const navItems: NavItem[] = [
       { label: 'Why Us', href: '/WhyUs' },
       { label: 'Careers', href: '/Careers' },
       { label: 'About Us', href: '/Aboutus' },
-      
     ],
   },
   {
     label: 'Solutions',
     href: '/Solutions',
-    dropdown: true, 
+    dropdown: true,
   },
-  { label: 'Get Started', href: '/get-started' },
+  { label: 'Get Started', href: '/contectus' },
 ];
 
 // Custom hook for detecting clicks outside of a ref element
@@ -49,15 +48,33 @@ function useOutsideClick(ref: React.RefObject<HTMLElement>, handler: () => void)
 export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
+  const lastScrollY = useRef(0);
   const timeoutId = useRef<ReturnType<typeof setTimeout> | null>(null);
- 
+
   useOutsideClick(dropdownRef as React.RefObject<HTMLElement>, () =>
     setOpenDropdown(null)
   );
 
+  // Scroll hide/show logic
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY.current && window.scrollY > 100) {
+        // Scrolling down
+        setHidden(true);
+      } else {
+        // Scrolling up
+        setHidden(false);
+      }
+      lastScrollY.current = window.scrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     setMobileMenuOpen(false);
@@ -73,7 +90,9 @@ export default function Navbar() {
 
   return (
     <nav
-      className="fixed top-0 left-0 w-full bg-white shadow-md h-20 z-50"
+      className={`fixed top-0 left-0 w-full bg-white shadow-md h-20 z-50 transition-transform duration-300 ${
+        hidden ? '-translate-y-full' : 'translate-y-0'
+      }`}
       role="navigation"
       aria-label="Primary Navigation"
     >
@@ -378,8 +397,6 @@ export default function Navbar() {
           ))}
         </ul>
 
-     
-
         {/* Contact Button */}
         <Link
           href="/contectus"
@@ -407,16 +424,16 @@ export default function Navbar() {
         </button>
       </div>
 
-{/* Mobile Menu */}
-{isMobileMenuOpen && (
-  <div
-    id="mobile-menu"
-    className="md:hidden px-6 pb-4 space-y-3 text-sm bg-white border-t border-gray-200 shadow"
-    role="menu"
-    aria-label="Mobile Navigation"
-    onKeyDown={onDropdownKeyDown}
-  >
-    {navItems.map(({ label, href, dropdown, items }) =>
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div
+          id="mobile-menu"
+          className="md:hidden px-6 pb-4 space-y-3 text-sm bg-white border-t border-gray-200 shadow"
+          role="menu"
+          aria-label="Mobile Navigation"
+          onKeyDown={onDropdownKeyDown}
+        >
+      {navItems.map(({ label, href, dropdown, items }) =>
       dropdown ? (
         <details key={label} className="group" role="none">
           <summary
@@ -528,12 +545,8 @@ export default function Navbar() {
         </a>
       ))}
     </div>
-  </div>
-)}
-
-
-
-
+        </div>
+      )}
     </nav>
   );
 }

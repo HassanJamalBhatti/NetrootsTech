@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect } from "react";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import Image from "next/image";
@@ -28,7 +29,7 @@ const tabContent: Record<
   Mobile: {
     title: "Mobile Development",
     description:
-      "Our Mobile Development team builds robust, cross-platform mobile apps with modern frameworks and tools to deliver smooth user experiences.",
+      "Our Mobile Development team builds fast, cross-platform apps with modern tools for smooth user experiences.",
     techs: [
       {
         name: "React Native",
@@ -281,14 +282,13 @@ const tabContent: Record<
   },
 };
 
+
+
 export default function TechnologiesSection() {
   const [selectedTab, setSelectedTab] = useState<TabType>("Mobile");
   const [rating, setRating] = useState<number>(4.9);
   const [reviews, setReviews] = useState<number>(127);
-
-// NEW: fallback images state
-const [fallbacks, setFallbacks] = useState<{ [key: string]: string }>({});
-
+  const [fallbacks, setFallbacks] = useState<{ [key: string]: string }>({});
 
   useEffect(() => {
     async function fetchGoogleRating() {
@@ -305,129 +305,107 @@ const [fallbacks, setFallbacks] = useState<{ [key: string]: string }>({});
     fetchGoogleRating();
   }, []);
 
-const renderStars = (value: number) => {
-  return Array.from({ length: 5 }, (_, i) => {
-    const index = i + 1;
-
-    const full = index <= Math.floor(value);
-    const half = !full && index - 0.5 <= value;
-
-    return full ? (
-      <FaStar key={i} className="text-yellow-400" />
-    ) : half ? (
-      <FaStarHalfAlt key={i} className="text-yellow-400" />
-    ) : (
-      <FaStar key={i} className="text-gray-300" />
-    );
-  });
-};
-
+  const renderStars = (value: number) => {
+    return Array.from({ length: 5 }, (_, i) => {
+      const index = i + 1;
+      const full = index <= Math.floor(value);
+      const half = !full && index - 0.5 <= value;
+      return full ? (
+        <FaStar key={i} className="text-yellow-400" />
+      ) : half ? (
+        <FaStarHalfAlt key={i} className="text-yellow-400" />
+      ) : (
+        <FaStar key={i} className="text-gray-300" />
+      );
+    });
+  };
 
   return (
-    <div className="min-h-screen bg-gray-50 font-sans">
-      
+    <div className="w-full max-w-7xl h-screen bg-gray-50 mx-auto px-6 py-14 overflow-hidden flex items-center">
+      <section className="w-full flex flex-col lg:flex-row items-center justify-center py-16 px-6 lg:py-24 lg:px-12 gap-12">
+        
+        {/* Image Section */}
+        <div className="w-full lg:w-1/2 flex justify-center items-center">
+          <Image
+            src="/tech1.png"
+            alt="Technology Illustration"
+            width={1200}
+            height={1200}
+            className="w-full max-w-lg lg:max-w-2xl object-contain"
+            loading="lazy"
+          />
+        </div>
 
-      {/* Technologies Section */}
-      <section className="w-full bg-white  py-16 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12">
+        {/* Content Section */}
+        <div className="w-full lg:w-1/2 flex flex-col justify-center items-start max-w-xl">
+          <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4 leading-tight">
+            We Offer Solutions Powered by{" "}
+            <span className="text-blue-600">Technologies</span>
+          </h2>
+          <p className="text-gray-600 mb-6 text-sm sm:text-base leading-relaxed">
+            Our company uses modern technologies and frameworks to build innovative, scalable, and high-quality software solutions.
+          </p>
 
-          {/* Image Section */}
-          <div className="w-full lg:w-1/2 mr-15 flex justify-center">
-            <Image
-              src="/tech1.png"
-              alt="Technology Illustration"
-              width={1200}       
-              height={1200}      
-              className="w-full max-w-6xl lg:max-w-2xl object-contain"
-              loading="lazy"
-            />
+          {/* Tabs */}
+          <div className="flex flex-wrap gap-3 mb-6 w-full">
+            {tabs.map((tab) => {
+              const isSelected = selectedTab === tab;
+              return (
+                <button
+                  key={tab}
+                  onClick={() => setSelectedTab(tab)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex-shrink-0
+                    ${
+                      isSelected
+                        ? "bg-blue-600 text-white shadow-md"
+                        : "bg-gray-100 text-gray-700 hover:bg-blue-100 hover:text-blue-600"
+                    }`}
+                >
+                  {tab.replace(/&/g, " & ")}
+                </button>
+              );
+            })}
           </div>
 
-
-
-          {/* Content Section */}
-          <div className="w-full lg:w-1/2 max-w-xl mr-8 mx-auto">
-
-           
-
-            {/* Heading */}
-            <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4 leading-tight">
-              We Offer Solutions Powered by These{" "}
-              <span className="text-blue-600">Technologies</span>
-            </h2>
-
-            {/* Description */}
-            <p className="text-gray-600 mb-6 text-sm sm:text-base leading-relaxed">
-              Our company uses modern technologies and frameworks to build innovative,
-              scalable, and high-quality software solutions.
+          {/* Tab Content */}
+          <div className="border border-blue-300 rounded-xl p-6 bg-white shadow-sm w-full">
+            <h3 className="text-xl sm:text-2xl font-bold text-blue-700 mb-3">
+              {tabContent[selectedTab].title}
+            </h3>
+            <p className="text-gray-700 mb-5 text-sm sm:text-base">
+              {tabContent[selectedTab].description}
             </p>
 
-            {/* Tabs */}
-            <div className="flex gap-3 flex-wrap mb-6">
-              {tabs.map((tab) => {
-                const isSelected = selectedTab === tab;
+            {/* Tech Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+              {tabContent[selectedTab].techs.map((tech) => {
+                const src = fallbacks[tech.name] || tech.src;
                 return (
-                  <button
-                    key={tab}
-                    onClick={() => setSelectedTab(tab)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300
-                      ${
-                        isSelected
-                          ? "bg-blue-600 text-white shadow-md"
-                          : "bg-gray-100 text-gray-700 cursor-pointer hover:bg-blue-100 hover:text-blue-600"
+                  <div key={tech.name} className="flex items-center gap-3">
+                    <Image
+                      src={src}
+                      alt={`${tech.name} logo`}
+                      width={48}
+                      height={48}
+                      className="object-contain sm:w-12 sm:h-12"
+                      unoptimized
+                      onError={() =>
+                        setFallbacks((prev) => ({
+                          ...prev,
+                          [tech.name]: "/placeholder.png",
+                        }))
                       }
-                    `}
-                  >
-                    {tab.replace(/&/g, " & ")}
-                  </button>
+                    />
+                    <span className="font-semibold text-gray-800 text-sm sm:text-base">
+                      {tech.name}
+                    </span>
+                  </div>
                 );
               })}
-            </div>
-
-            {/* Tab Content */}
-            <div className="border border-blue-300 rounded-xl p-6 bg-white shadow-sm">
-              <h3 className="text-xl sm:text-2xl font-bold text-blue-700 mb-3">
-                {tabContent[selectedTab].title}
-              </h3>
-
-              <p className="text-gray-700 mb-5 text-sm sm:text-base">
-                {tabContent[selectedTab].description}
-              </p>
-
-              {/* Tech Grid */}
-              <div className="grid grid-cols-2 gap-6">
-                {tabContent[selectedTab].techs.map((tech) => {
-                  const src = fallbacks[tech.name] || tech.src;
-                  
-                  return (
-                    <div key={tech.name} className="flex items-center gap-3">
-                      <Image
-                        src={src}              
-                        alt={`${tech.name} logo`}
-                        width={48}
-                        height={48}
-                        className="object-contain sm:w-12 sm:h-12"
-                        unoptimized
-                        onError={() =>
-                          setFallbacks((prev) => ({
-                            ...prev,
-                            [tech.name]: '/placeholder.png',
-                          }))
-                        }
-                      />
-                      <span className="font-semibold text-gray-800 text-sm sm:text-base">
-                        {tech.name}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
-
             </div>
           </div>
         </div>
       </section>
-
     </div>
   );
 }

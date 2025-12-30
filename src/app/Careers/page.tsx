@@ -140,7 +140,7 @@ if (loadingPage) {
           <p className="text-sm md:text-base text-gray-600 mb-6">
             Join us! Become the Impact!
           </p>
-          <button className="bg-blue-700 text-white px-6 py-2 rounded-md text-sm font-semibold hover:bg-blue-800 transition">
+          <button onClick={() => window.location.href = 'https://www.linkedin.com/company/netroots-technologies'} className="bg-blue-700 text-white px-6 py-2 rounded-md text-sm font-semibold hover:bg-blue-800 transition">
             Explore Open Positions
           </button>
         </section>
@@ -194,7 +194,7 @@ if (loadingPage) {
 
           {/* Bottom button */}
           <div className="text-center mt-12">
-            <button className="bg-blue-700 text-white px-6 py-2 rounded-md text-sm font-semibold hover:bg-blue-800 transition">
+            <button onClick={() => window.location.href = 'https://www.linkedin.com/company/netroots-technologies'} className="bg-blue-700 text-white px-6 py-2 rounded-md text-sm font-semibold hover:bg-blue-800 transition">
               Explore Open Positions
             </button>
           </div>

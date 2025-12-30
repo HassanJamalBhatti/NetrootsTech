@@ -86,7 +86,7 @@ export default function Home() {
           transition={{ delay: 0.9, duration: 0.8 }}
         >
           <Image
-            src="/office.jpg"
+            src="/topoffice.jpg"
             alt="Office team"
             width={1200}
             height={600}

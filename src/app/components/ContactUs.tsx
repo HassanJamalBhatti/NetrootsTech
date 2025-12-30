@@ -1,13 +1,11 @@
 "use client";
 
 import { Inter } from "next/font/google";
-import { FaCheckCircle, FaChevronRight } from "react-icons/fa";
+import { FaCheckCircle, FaChevronRight } from "react-icons/fa"; 
 import Select from "react-select";
 import React, { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
-
-/* -------------------- DATA -------------------- */
 const countryCodes = [
   { code: "+93", name: "Afghanistan" },
   { code: "+355", name: "Albania" },
@@ -226,198 +224,228 @@ interface CountryOption {
   label: string;
 }
 const serviceOptions = [
-  { value: "web-development", label: "Web Development" },
-  { value: "digital-marketing", label: "Digital Marketing" },
-  { value: "branding", label: "Branding" },
-  { value: "seo-optimization", label: "SEO Optimization" },
-  { value: "graphic-design", label: "Graphic Design" },
-  { value: "content-writing", label: "Content Writing" },
-  { value: "social-media-management", label: "Social Media Management" },
-  { value: "mobile-app-development", label: "Mobile App Development" },
-  { value: "ui-ux-design", label: "UI/UX Design" },
-  { value: "ecommerce-solutions", label: "eCommerce Solutions" },
-  { value: "email-marketing", label: "Email Marketing" },
-  { value: "video-production", label: "Video Production" },
-  { value: "ppc", label: "Pay Per Click (PPC)" },
-  { value: "influencer-marketing", label: "Influencer Marketing" },
-  { value: "market-research", label: "Market Research" },
-  { value: "cloud-solutions", label: "Cloud Solutions" },
-  { value: "it-consulting", label: "IT Consulting" },
-  { value: "web-hosting", label: "Web Hosting" },
-  { value: "cybersecurity", label: "Cybersecurity" },
-  { value: "analytics-reporting", label: "Analytics & Reporting" },
+  { value: "Intelligent Automation & AI Solutions", label: "Intelligent Automation & AI Solutions" },
+  { value: "Data Intelligence & Predictive Analytics", label: "Data Intelligence & Predictive Analytics" },
+  { value: "Cloud Architecture & Next-Gen Infrastructure", label: "Cloud Architecture & Next-Gen Infrastructure" },
+  { value: "Talent-as-a-Service (Staff Augmentation)", label: "Talent-as-a-Service (Staff Augmentation)" },
+  { value: "Product Innovation & MVP Launch", label: "Product Innovation & MVP Launch" },
+  { value: "Growth Marketing & Digital Acceleration", label: "Growth Marketing & Digital Acceleration" },
+  { value: "Web3 & App Experiences", label: "Web3 & App Experiences" },
+  { value: "DevOps & Continuous Delivery", label: "DevOps & Continuous Delivery" },
 ];
+
 interface ServiceOption {
   value: string;
   label: string;
 }
 
-const countryOptions = countryCodes.map((c) => ({
+
+// Prepare options for react-select
+const countryOptions = countryCodes.map(c => ({
   value: c.code,
   label: `${c.code} ${c.name}`,
 }));
 
-/* -------------------- COMPONENT -------------------- */
+  
+
 export default function ContactPage() {
+  
   const [selectedServices, setSelectedServices] = useState<ServiceOption[]>([]);
-  const [selectedCountry, setSelectedCountry] =
-    useState<CountryOption | null>(null);
-
+  const [selectedCountry, setSelectedCountry] = useState<CountryOption | null>(null);
   return (
-    <div className={`${inter.className} w-full flex justify-center py-16 px-4`}>
-      <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-10">
+  <div className={`${inter.className} w-full flex justify-center py-12 px-4 sm:py-16 sm:px-6`}>
+    <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
 
-        {/* ================= LEFT CARD ================= */}
-        <div className="bg-black text-white rounded-2xl p-8 md:p-10">
-          <h2 className="text-lg md:text-xl font-semibold leading-relaxed">
-            Partner with Us for Comprehensive <br className="hidden md:block" />
-            IT & Digital Marketing Solutions
-          </h2>
+      {/* ================= LEFT CARD ================= */}
+      <div className="bg-black text-white rounded-2xl p-6 sm:p-8 md:p-10">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold leading-relaxed">
+          Partner with Us for Comprehensive <br className="hidden md:block" /> IT & Digital Marketing Solutions
+        </h2>
 
-          <p className="text-gray-300 mt-4 leading-relaxed text-sm md:text-base">
-            Get in touch & let’s start crafting solutions that drive your
-            business forward.
-          </p>
+        <p className="text-gray-300 mt-4 leading-relaxed text-sm sm:text-base">
+          Get in touch & let’s start crafting solutions that drive your business forward.
+        </p>
 
-          <p className="mt-6 font-semibold text-sm md:text-base">
-            Email us at :
-            <span className="text-gray-200 font-normal block md:inline">
-              {" "}
-              business@netrootstech.com
-            </span>
-          </p>
+        <p className="mt-6 font-semibold text-sm sm:text-base">
+          Email us at :{" "}
+          <span className="text-gray-200 font-normal">business@netrootstech.com</span>
+        </p>
 
-          {/* BENEFITS */}
-          <div className="mt-8">
-            <h3 className="font-bold text-lg">Your Benefits</h3>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 mt-4 text-gray-300">
-              {[
-                "Client-oriented",
-                "Results-Driven",
-                "Independent",
-                "Problem-Solving",
-                "Competent",
-                "Transparent",
-              ].map((item, idx) => (
-                <p key={idx} className="flex items-center gap-3 text-sm">
-                  <FaCheckCircle className="text-teal-400 shrink-0" />
-                  {item}
-                </p>
-              ))}
-            </div>
-          </div>
-
-          {/* WHAT'S NEXT */}
-          <div className="mt-8">
-            <h3 className="font-bold text-lg">What’s Next?</h3>
-
-            <ul className="mt-4 space-y-3 text-gray-300 text-sm">
-              {[
-                "We schedule a call at your convenience.",
-                "We do a discovery & consulting meeting.",
-                "We prepare a proposal.",
-              ].map((text, idx) => (
-                <li key={idx} className="flex gap-3">
-                  <FaChevronRight className="text-teal-400 mt-1 shrink-0" />
-                  {text}
-                </li>
-              ))}
-            </ul>
+        {/* BENEFITS */}
+        <div className="mt-8 sm:mt-10">
+          <h3 className="font-bold text-lg sm:text-xl">Your Benefits</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 sm:gap-y-4 mt-4 text-gray-300">
+            {[
+              "Client-oriented",
+              "Results-Driven",
+              "Independent",
+              "Problem-Solving",
+              "Competent",
+              "Transparent",
+            ].map((item, idx) => (
+              <p key={idx} className="flex items-center gap-2 sm:gap-3 text-sm sm:text-base">
+                <FaCheckCircle className="text-teal-400 shrink-0" />
+                <span className="text-gray-200 font-normal">{item}</span>
+              </p>
+            ))}
           </div>
         </div>
 
-        {/* ================= RIGHT FORM ================= */}
-        <div>
-          <h1 className="text-3xl md:text-4xl font-semibold">
-            Get your <span className="text-blue-600">Free Quote</span> Today!
-          </h1>
-
-          <form className="mt-8 space-y-6">
-
-            {/* NAME + EMAIL */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <div>
-                <label className="block mb-2 text-sm font-medium">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="Eg. John Doe"
-                  className="w-full bg-gray-100 border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-
-              <div>
-                <label className="block mb-2 text-sm font-medium">
-                  Your Email
-                </label>
-                <input
-                  type="email"
-                  placeholder="example@gmail.com"
-                  className="w-full bg-gray-100 border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-            </div>
-
-            {/* PHONE */}
-            <div>
-              <label className="block mb-2 text-sm font-medium">Phone</label>
-              <div className="flex gap-3">
-                <div className="w-36">
-                  <Select
-                    options={countryOptions}
-                    value={selectedCountry}
-                    onChange={(opt) => setSelectedCountry(opt)}
-                    placeholder="Code"
-                  />
-                </div>
-                <input
-                  type="text"
-                  placeholder="Phone number"
-                  className="flex-1 bg-gray-100 border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-            </div>
-
-            {/* SERVICE */}
-            <div>
-              <label className="block mb-2 text-sm font-medium">
-                Service
-              </label>
-              <Select
-                options={serviceOptions}
-                value={selectedServices}
-                onChange={(s) =>
-                  setSelectedServices((s ?? []) as ServiceOption[])
-                }
-                isMulti
-                placeholder="Select Services"
-              />
-            </div>
-
-            {/* MESSAGE */}
-            <div>
-              <label className="block mb-2 text-sm font-medium">
-                Your Message
-              </label>
-              <textarea
-                rows={4}
-                placeholder="Enter here..."
-                className="w-full bg-gray-100 border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-
-            {/* SUBMIT */}
-            <button
-              type="submit"
-              className="w-full md:w-auto bg-blue-600 text-white px-10 py-3 rounded-xl hover:bg-blue-700 transition"
-            >
-              Submit
-            </button>
-          </form>
+        {/* WHAT'S NEXT */}
+        <div className="mt-8 sm:mt-10">
+          <h3 className="font-bold text-lg sm:text-xl">What’s Next?</h3>
+          <ul className="mt-4 space-y-2 sm:space-y-4 text-gray-300 text-sm sm:text-base">
+            {[
+              "1. We schedule a call at your convenience.",
+              "2. We do a discovery & consulting meeting.",
+              "3. We prepare a proposal.",
+            ].map((text, idx) => (
+              <li key={idx} className="flex items-start gap-2 sm:gap-3">
+                <FaChevronRight className="text-teal-400 mt-1 shrink-0" />
+                {text}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
+
+      {/* ================= RIGHT FORM ================= */}
+      <div className="mt-8 md:mt-0">
+        <h1 className="text-3xl sm:text-4xl md:text-4xl font-semibold">
+          Get your <span className="text-blue-600">Free Quote</span> Today!
+        </h1>
+
+        <form className="mt-6 sm:mt-8 space-y-5 sm:space-y-6">
+
+          {/* NAME + EMAIL */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+            <div>
+              <label className="block mb-2 text-sm font-medium text-gray-800">Your Name</label>
+              <input
+                type="text"
+                placeholder="Eg. John Doe"
+                className="w-full bg-gray-100 border border-gray-300 rounded-xl px-4 py-3 text-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+              />
+            </div>
+            <div>
+              <label className="block mb-2 text-sm font-medium text-gray-800">Your Email</label>
+              <input
+                type="email"
+                placeholder="example@gmail.com"
+                className="w-full bg-gray-100 border border-gray-300 rounded-xl px-4 py-3 text-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+              />
+            </div>
+          </div>
+
+          {/* PHONE */}
+          <div>
+            <label htmlFor="phone" className="block mb-2 text-sm font-medium text-gray-800">Phone</label>
+            <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+              <div className="w-full sm:w-40">
+                <Select
+                  options={countryOptions}
+                  value={selectedCountry}
+                  onChange={(option) => setSelectedCountry(option)}
+                  className="react-select-container"
+                  classNamePrefix="react-select"
+                  isSearchable
+                  placeholder="Code"
+                  styles={{
+                    control: (provided, state) => ({
+                      ...provided,
+                      backgroundColor: "#f3f4f6",
+                      borderRadius: "0.75rem",
+                      borderColor: state.isFocused ? "#3b82f6" : "#d1d5db",
+                      minHeight: "3rem",
+                      boxShadow: state.isFocused ? "0 0 0 2px #3b82f6" : "none",
+                    }),
+                    option: (provided, state) => ({
+                      ...provided,
+                      backgroundColor: state.isFocused ? "#bfdbfe" : "white",
+                      color: state.isSelected ? "#3b82f6" : "black",
+                    }),
+                    menu: (provided) => ({
+                      ...provided,
+                      borderRadius: "0.75rem",
+                      overflow: "hidden",
+                    }),
+                  }}
+                />
+              </div>
+              <input
+                id="phone"
+                type="text"
+                placeholder="Enter Phone Number"
+                className="flex-1 w-full bg-gray-100 border border-gray-300 rounded-xl px-4 py-3 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+              />
+            </div>
+          </div>
+
+          {/* SERVICE */}
+          <div>
+            <label htmlFor="service" className="block mb-2 text-sm font-medium text-gray-800">Service</label>
+            <Select
+              id="service"
+              options={serviceOptions}
+              value={selectedServices}
+              onChange={(selected) => setSelectedServices((selected ?? []) as ServiceOption[])}
+              isMulti
+              isSearchable
+              placeholder="Select Services"
+              className="react-select-container"
+              classNamePrefix="react-select"
+              styles={{
+                control: (provided, state) => ({
+                  ...provided,
+                  backgroundColor: "#f3f4f6",
+                  borderRadius: "0.75rem",
+                  borderColor: state.isFocused ? "#3b82f6" : "#d1d5db",
+                  minHeight: "3rem",
+                  boxShadow: state.isFocused ? "0 0 0 2px #3b82f6" : "none",
+                }),
+                option: (provided, state) => ({
+                  ...provided,
+                  backgroundColor: state.isFocused ? "#bfdbfe" : "white",
+                  color: state.isSelected ? "white" : "black",
+                }),
+                multiValue: (provided) => ({
+                  ...provided,
+                  backgroundColor: "#3b82f6",
+                  color: "white",
+                  borderRadius: "0.5rem",
+                }),
+                multiValueLabel: (provided) => ({ ...provided, color: "white" }),
+                multiValueRemove: (provided) => ({
+                  ...provided,
+                  color: "white",
+                  ":hover": { backgroundColor: "#2563eb", color: "white" },
+                }),
+              }}
+            />
+          </div>
+
+          {/* MESSAGE */}
+          <div>
+            <label className="block mb-2 text-sm text-gray-800">Your Message</label>
+            <textarea
+              rows={5}
+              placeholder="Enter here..."
+              className="w-full flex-1 bg-gray-100 border border-gray-300 rounded-xl px-4 py-3 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+            />
+          </div>
+
+          {/* SUBMIT */}
+          <button
+            type="submit"
+            className="w-full md:w-auto bg-blue-600 text-white px-8 py-3 rounded-xl font-medium hover:bg-blue-700 transition"
+          >
+            Submit
+          </button>
+
+        </form>
+      </div>
     </div>
+  </div>
+
   );
 }

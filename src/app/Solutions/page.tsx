@@ -33,7 +33,7 @@ const services: Service[] = [
     description:
       "Leverage AI, machine learning, and smart automation to optimize operations and enhance customer experiences.",
     icon: <FaBrain size={22} />,
-    link: "/Solutions/ai-automation",
+    link: "/contact",
   },
   {
     id: 2,
@@ -41,7 +41,7 @@ const services: Service[] = [
     description:
       "Transform your data into actionable insights with real-time analytics, dashboards, and predictive modeling.",
     icon: <FaChartLine size={22} />,
-    link: "/Solutions/data-intelligence",
+    link: "/contact",
   },
   {
     id: 3,
@@ -49,7 +49,7 @@ const services: Service[] = [
     description:
       "Scalable, secure, and flexible cloud solutions to power modern businesses and accelerate digital transformation.",
     icon: <FaCloud size={22} />,
-    link: "/Solutions/cloud-architecture",
+    link: "/contact",
   },
   {
     id: 4,
@@ -57,7 +57,7 @@ const services: Service[] = [
     description:
       "Access top-tier tech talent on demand. Scale your team with skilled developers, designers, and digital specialists.",
     icon: <FaUsersCog size={22} />,
-    link: "/Solutions/staff-augmentation",
+    link: "/contact",
   },
   {
     id: 5,
@@ -65,7 +65,7 @@ const services: Service[] = [
     description:
       "From ideation to launch, we help bring your product vision to life with agile development and rapid MVP testing.",
     icon: <FaRocket size={22} />,
-    link: "/Solutions/mvp-launch",
+    link: "/contact",
   },
   {
     id: 6,
@@ -73,7 +73,7 @@ const services: Service[] = [
     description:
       "Data-driven marketing strategies, performance campaigns, and brand amplification to maximize ROI.",
     icon: <FaLaptopCode size={22} />,
-    link: "/Solutions/growth-marketing",
+    link: "/contact",
   },
   {
     id: 7,
@@ -81,7 +81,7 @@ const services: Service[] = [
     description:
       "Custom websites, mobile apps, and immersive digital experiences designed for engagement, retention, and business impact.",
     icon: <FaCube size={22} />,
-    link: "/Solutions/web3-apps",
+    link: "/contact",
   },
   {
     id: 8,
@@ -89,7 +89,7 @@ const services: Service[] = [
     description:
       "Streamline your software development pipelines with CI/CD, cloud-native infrastructure, and automated workflows.",
     icon: <FaCogs size={22} />,
-    link: "/Solutions/devops-cd",
+    link: "/contact",
   },
 ];
 
@@ -113,24 +113,6 @@ export default function ServicesPage() {
           <span className="dot"></span>
           <span className="dot"></span>
         </div>
-        <style jsx>{`
-          .dot {
-            width: 1.5rem;
-            height: 1.5rem;
-            background-color: #3498db;
-            border-radius: 50%;
-            display: inline-block;
-            animation: blink 1.5s infinite;
-          }
-          .dot:nth-child(1) { animation-delay: 0s; }
-          .dot:nth-child(2) { animation-delay: 0.3s; }
-          .dot:nth-child(3) { animation-delay: 0.6s; }
-          @keyframes blink {
-            0%, 20% { opacity: 0; }
-            50% { opacity: 1; }
-            100% { opacity: 0; }
-          }
-        `}</style>
       </div>
     );
   }
@@ -142,7 +124,7 @@ export default function ServicesPage() {
       <main className="min-h-screen py-12 px-6 mt-20 md:px-16 bg-gradient-to-b from-[#f8faff] to-[#e7ebf5]">
 
         {/* Header */}
-        <section className="text-center mb-16 animate-fadeIn">
+        <section className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-gray-800">
             Services & Solutions
           </h1>
@@ -160,42 +142,28 @@ export default function ServicesPage() {
                 key={id}
                 onMouseEnter={() => setHoveredId(id)}
                 onMouseLeave={() => setHoveredId(null)}
-                className={`flex flex-col gap-4 bg-white rounded-2xl p-6 shadow-md transition-all duration-500
-                  hover:shadow-xl hover:scale-105 relative`}
+                className="flex flex-col gap-4 bg-white rounded-2xl p-6 shadow-md hover:shadow-xl hover:scale-105 transition-all duration-500"
               >
-                {/* Icon */}
-                <div
-                  className={`w-14 h-14 flex items-center justify-center rounded-xl text-white transition-all duration-500
-                    ${isActive ? "bg-gradient-to-r from-blue-600 to-blue-500" : "bg-gradient-to-r from-blue-500 to-blue-400"}`}
-                >
+                <div className={`w-14 h-14 flex items-center justify-center rounded-xl text-white
+                  ${isActive ? "bg-gradient-to-r from-blue-600 to-blue-500" : "bg-gradient-to-r from-blue-500 to-blue-400"}`}>
                   {icon}
                 </div>
 
-                {/* Title */}
-                <h3 className={`font-semibold text-lg md:text-xl transition-colors duration-300
-                  ${isActive ? "text-blue-700" : "text-gray-800"}`}>
+                <h3 className={`font-semibold text-lg md:text-xl ${isActive ? "text-blue-700" : "text-gray-800"}`}>
                   {title}
                 </h3>
 
-                {/* Description */}
-                <p className="text-gray-600 text-sm md:text-base  leading-relaxed flex-1">
+                <p className="text-gray-600 text-sm md:text-base leading-relaxed flex-1">
                   {description}
                 </p>
-
-                {/* Divider with blur on sides */}
-                <div className="relative my-3">
-                  <hr className="border-t border-gray-200 absolute inset-x-0 top-1/2 transform -translate-y-1/2" />
-                  <div className="absolute left-0 w-8 h-px bg-white blur-sm rounded-full"></div>
-                  <div className="absolute right-0 w-8 h-px bg-white blur-sm rounded-full"></div>
-                </div>
-
-                {/* Button fixed bottom-right */}
+                {/* UPDATED BUTTON */}
                 <div className="flex justify-end mt-auto">
+                {/* <hr className="border-t border-gray-200 absolute inset-x-0 top-1/2 transform -translate-y-1/2" /> */}
                   <Link
-                    href={link}
+                    href={`${link}?service=${encodeURIComponent(title)}`}
                     className="bg-blue-600 text-white px-4 py-1.5 rounded-md text-sm font-medium hover:bg-blue-700 transition-all shadow-sm hover:shadow-md"
                   >
-                    Choose Your Plan
+                    Get Started
                   </Link>
                 </div>
               </div>
@@ -203,42 +171,11 @@ export default function ServicesPage() {
           })}
         </section>
 
-
-        {/* Why Choose Us Section */}
-        <section className="mt-20 flex flex-col lg:flex-row items-center gap-10 animate-fadeInSlow max-w-7xl mx-auto">
-          <div className="lg:w-1/2">
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-gray-800 border-l-4 border-gray-800 pl-4">
-              Why choose services from Netroots Technologies?
-            </h2>
-            <p className="text-gray-600 mb-6 leading-relaxed">
-              At Netroots Technologies, we craft solutions that align with your business vision.
-              Our experienced professionals deliver measurable impact, ensuring your brand thrives
-              in the fast-paced digital landscape.
-            </p>
-            <button className="bg-gray-800 text-white px-8 py-3 rounded-md font-medium hover:bg-gray-700 transition-all shadow-md hover:shadow-lg">
-              Get Started
-            </button>
-          </div>
-
-          <div className="lg:w-1/2">
-            <div className="relative rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
-              <Image
-                src="/selution/code.jpg"
-                alt="Coding screen"
-                width={600}
-                height={400}
-                className="rounded-lg object-cover"
-              />
-            </div>
-          </div>
-        </section>
       </main>
 
-      {/* Contact Section */}
       <ContactUs />
-
-      {/* Footer */}
       <Footer />
     </div>
   );
 }
+
