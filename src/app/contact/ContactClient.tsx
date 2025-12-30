@@ -277,57 +277,127 @@ export default function ContactClient() {
 
       {/* FORM */}
       <form className="space-y-6 bg-white p-8 rounded-2xl shadow-lg">
-        {/* NAME + EMAIL */}
-        <div className="grid sm:grid-cols-2 gap-4">
-          <input
-            placeholder="Your Name"
-            className="input"
-          />
-          <input
-            placeholder="Email"
-            type="email"
-            className="input"
-          />
-        </div>
 
-        {/* PHONE */}
-        <div className="flex gap-3">
-          <div className="w-36">
+          {/* NAME + EMAIL */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block mb-2 text-sm font-medium">Your Name</label>
+              <input
+                type="text"
+                placeholder="John Doe"
+                className="w-full bg-gray-100 border border-gray-300 rounded-xl px-4 py-3 text-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+              />
+            </div>
+
+            <div>
+              <label className="block mb-2 text-sm font-medium">Your Email</label>
+              <input
+                type="email"
+                placeholder="example@gmail.com"
+                className="w-full bg-gray-100 border border-gray-300 rounded-xl px-4 py-3 text-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition "
+              />
+            </div>
+          </div>
+
+          {/* PHONE NUMBER */}
+          <div>
+            <label className="block mb-2 text-sm font-medium">Phone</label>
+            <div className="flex gap-3">
+              {/* COUNTRY CODE */}
+              <div className="w-36">
+                <Select
+                  options={countryOptions}
+                  value={selectedCountry}
+                  onChange={(option) => setSelectedCountry(option)}
+                  placeholder="Code"
+                  isSearchable
+                  classNamePrefix="react-select"
+                  styles={{
+                    control: (base, state) => ({
+                      ...base,
+                      backgroundColor: "#f3f4f6",
+                      borderRadius: "0.75rem",
+                      borderColor: state.isFocused ? "#3b82f6" : "#d1d5db",
+                      minHeight: "3rem",
+                      boxShadow: state.isFocused ? "0 0 0 2px #3b82f6" : "none",
+                    }),
+                    option: (base, state) => ({
+                      ...base,
+                      backgroundColor: state.isFocused ? "#bfdbfe" : "white",
+                      color: "black",
+                    }),
+                  }}
+                />
+              </div>
+
+              {/* PHONE INPUT */}
+              <input
+                type="text"
+                placeholder="Enter Phone Number"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+               className="w-full bg-gray-100 border border-gray-300 rounded-xl px-4 py-3 text-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+              />
+            </div>
+          </div>
+
+          {/* SERVICE */}
+          <div>
+            <label className="block mb-2 text-sm font-medium">Service</label>
             <Select
-              options={countryOptions}
-              value={selectedCountry}
-              onChange={(v) => setSelectedCountry(v)}
-              placeholder="Code"
+              options={serviceOptions}
+              value={selectedServices}
+              onChange={(val) => setSelectedServices(val as ServiceOption[])}
+              isMulti
+              isSearchable
+              placeholder="Select Services"
+              classNamePrefix="react-select"
+              styles={{
+                control: (base, state) => ({
+                  ...base,
+                  backgroundColor: "#f3f4f6",
+                  borderRadius: "0.75rem",
+                  borderColor: state.isFocused ? "#3b82f6" : "#d1d5db",
+                  minHeight: "3rem",
+                  boxShadow: state.isFocused ? "0 0 0 2px #3b82f6" : "none",
+                }),
+                multiValue: (base) => ({
+                  ...base,
+                  backgroundColor: "#3b82f6",
+                  color: "white",
+                }),
+                multiValueLabel: (base) => ({
+                  ...base,
+                  color: "white",
+                }),
+                multiValueRemove: (base) => ({
+                  ...base,
+                  color: "white",
+                  ":hover": { backgroundColor: "#2563eb" },
+                }),
+              }}
             />
           </div>
-          <input
-            placeholder="Phone Number"
-            value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
-            className="input flex-1"
-          />
-        </div>
 
-        {/* SERVICES */}
-        <Select
-          options={serviceOptions}
-          value={selectedServices}
-          onChange={(v) => setSelectedServices(v as ServiceOption[])}
-          isMulti
-          placeholder="Select Services"
-        />
+          {/* MESSAGE */}
+          <div>
+            <label className="block mb-2 text-sm font-medium">Your Message</label>
+            <textarea
+              rows={5}
+              placeholder="Tell us more about your project..."
+              className="w-full bg-gray-100 border border-gray-300 rounded-xl px-4 py-3 text-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition "
+            />
+          </div>
 
-        {/* MESSAGE */}
-        <textarea
-          rows={5}
-          placeholder="Your Message"
-          className="input"
-        />
+          {/* SUBMIT */}
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white py-3 rounded-xl font-medium hover:bg-blue-700 transition"
+          >
+            Submit
+          </button>
 
-        <button className="w-full bg-blue-600 text-white py-3 rounded-xl">
-          Submit
-        </button>
-      </form>
+        </form>
     </main>
   );
 }
