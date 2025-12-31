@@ -187,8 +187,8 @@ if (loadingPage) {
       <Image
         src="/logo.png"
         alt="Logo"
-        width={128}     // corresponds to w-32 (32 * 4px = 128px)
-        height={128}    // corresponds to h-32
+        width={128}    
+        height={128}    
         className="mb-8 object-contain"
       />
       <div className="dots-loader flex space-x-2">
