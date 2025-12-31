@@ -1,164 +1,297 @@
-"use client";
+'use client';
 
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import ContactUs from "../components/ContactUs";
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState, useEffect, useRef, type KeyboardEvent } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
-interface Service {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  link: string;
-}
+/* ================= TYPES ================= */
 
-const services: Service[] = [
+type NavItem = {
+  label: string;
+  href: string;
+  dropdown?: boolean;
+  items?: { label: string; href: string }[];
+};
+
+/* ================= DATA ================= */
+
+const navigationItems: NavItem[] = [
+  { label: 'Home', href: '/' },
   {
-    id: 1,
-    title: "Intelligent Automation & AI Solutions",
-    description:
-      "Leverage AI, machine learning, and smart automation to optimize operations and enhance customer experiences.",
-    image: "/services/ai.png",
-    link: "/contact",
+    label: 'About Us',
+    href: '/Aboutus',
+    dropdown: true,
+    items: [
+      { label: 'Why Us', href: '/WhyUs' },
+      { label: 'Careers', href: '/Careers' },
+      { label: 'About Us', href: '/Aboutus' },
+    ],
   },
   {
-    id: 2,
-    title: "Data Intelligence & Predictive Analytics",
-    description:
-      "Transform your data into actionable insights with real-time analytics and predictive modeling.",
-    image: "/services/data.png",
-    link: "/contact",
+    label: 'Solutions',
+    href: '/Solutions',
+    dropdown: true,
   },
-  {
-    id: 3,
-    title: "Cloud Architecture & Next-Gen Infrastructure",
-    description:
-      "Scalable, secure, and flexible cloud solutions to accelerate digital transformation.",
-    image: "/services/cloud.png",
-    link: "/contact",
-  },
-  {
-    id: 4,
-    title: "Talent-as-a-Service (Staff Augmentation)",
-    description:
-      "Access top-tier developers, designers, and digital specialists on demand.",
-    image: "/services/talent.png",
-    link: "/contact",
-  },
-  {
-    id: 5,
-    title: "Product Innovation & MVP Launch",
-    description:
-      "From ideation to launch, we help bring your product vision to life.",
-    image: "/services/product.png",
-    link: "/contact",
-  },
-  {
-    id: 6,
-    title: "Growth Marketing & Digital Acceleration",
-    description:
-      "Performance-driven marketing strategies designed to maximize ROI.",
-    image: "/services/marketing.png",
-    link: "/contact",
-  },
-  {
-    id: 7,
-    title: "Web3 & App Experiences",
-    description:
-      "Custom websites, mobile apps, and immersive digital experiences.",
-    image: "/services/web3.png",
-    link: "/contact",
-  },
-  {
-    id: 8,
-    title: "DevOps & Continuous Delivery",
-    description:
-      "CI/CD pipelines, automation, and cloud-native workflows.",
-    image: "/services/devops.png",
-    link: "/contact",
-  },
+  { label: 'Get Started', href: '/contectus' },
 ];
 
-export default function ServicesPage() {
-  const [loadingPage, setLoadingPage] = useState(true);
+/* ================= HOOK ================= */
 
+function useOutsideClick(ref: React.RefObject<HTMLElement>, callback: () => void) {
   useEffect(() => {
-    const timer = setTimeout(() => setLoadingPage(false), 1200);
-    return () => clearTimeout(timer);
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        callback();
+      }
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, [callback]);
+}
+
+/* ================= MAIN ================= */
+
+export default function Navbar() {
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+
+  const pathname = usePathname();
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const lastScroll = useRef(0);
+
+  useOutsideClick(dropdownRef, () => setOpenDropdown(null));
+
+  /* Scroll hide */
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY;
+      setHidden(y > lastScroll.current && y > 120);
+      lastScroll.current = y;
+    };
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  if (loadingPage) {
-    return (
-      <div className="fixed inset-0 flex flex-col justify-center items-center bg-white z-50">
-        <Image src="/logo.png" alt="Logo" width={120} height={120} />
-        <p className="mt-4 text-gray-500">Loading services...</p>
-      </div>
-    );
-  }
+  useEffect(() => {
+    setIsMobileOpen(false);
+    setOpenDropdown(null);
+  }, [pathname]);
 
   return (
-    <div>
-      <Navbar />
+    <nav
+      className={`fixed top-0 inset-x-0 z-50 h-20 bg-white shadow transition-transform duration-300 ${
+        hidden ? '-translate-y-full' : 'translate-y-0'
+      }`}
+    >
+      <div className="mx-auto max-w-7xl h-full flex items-center justify-between px-6">
+        {/* Logo */}
+        <Link href="/" className="flex items-center h-full">
+          <Image src="/logo1.png" alt="Logo" width={160} height={64} priority />
+        </Link>
 
-      <main className="min-h-screen mt-20 px-6 md:px-16 py-16 bg-gradient-to-br from-[#f4f7ff] to-[#e7ebf5]">
-        {/* Header */}
-        <section className="text-center mb-20">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900">
-            Services & Solutions
-          </h1>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg mt-4">
-            Elevate your brand with scalable, secure, and future-ready digital solutions.
-          </p>
-        </section>
-
-        {/* Services Grid */}
-        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto mb-20">
-          {services.map(({ id, title, description, image, link }) => (
-            <div
-              key={id}
-              className="group relative bg-white/70 backdrop-blur-xl rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
-            >
-              {/* Image */}
-              <div className="w-20 h-20 mb-6 relative">
-                <Image
-                  src={image}
-                  alt={title}
-                  fill
-                  className="object-contain group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
-
-              {/* Content */}
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                {title}
-              </h3>
-
-              <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                {description}
-              </p>
-
-              {/* Get Started Button */}
-              <div className="flex justify-end">
-                <Link
-                  href={`${link}?service=${encodeURIComponent(title)}`}
-                  className="bg-blue-600 text-white px-5 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-all shadow-md"
-                >
-                  Get Started
-                </Link>
-              </div>
-
-              {/* Hover Glow */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-500/10 to-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            </div>
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex items-center gap-6">
+          {navigationItems.map((item) => (
+            <DesktopNavItem
+              key={item.label}
+              item={item}
+              pathname={pathname}
+              openDropdown={openDropdown}
+              setOpenDropdown={setOpenDropdown}
+              dropdownRef={dropdownRef}
+            />
           ))}
-        </section>
-      </main>
+        </ul>
 
-      <ContactUs />
-      <Footer />
+        {/* CTA */}
+        <Link
+          href="/contectus"
+          className="hidden md:inline-block bg-blue-700 text-white px-5 py-2 rounded hover:bg-blue-800"
+        >
+          Contact Us
+        </Link>
+
+        {/* Mobile Toggle */}
+        <button
+          className="md:hidden p-2"
+          onClick={() => setIsMobileOpen(!isMobileOpen)}
+        >
+          ☰
+        </button>
+      </div>
+
+      <MobileMenu isOpen={isMobileOpen} pathname={pathname} />
+    </nav>
+  );
+}
+
+/* ================= DESKTOP ================= */
+
+function DesktopNavItem({
+  item,
+  pathname,
+  openDropdown,
+  setOpenDropdown,
+  dropdownRef,
+}: any) {
+  const active = item.dropdown
+    ? pathname.startsWith(item.href)
+    : pathname === item.href;
+
+  return (
+    <li
+      className="relative"
+      onMouseEnter={() => item.dropdown && setOpenDropdown(item.label)}
+      onMouseLeave={() => setOpenDropdown(null)}
+    >
+      <Link
+        href={item.href}
+        className={`flex items-center gap-1 font-medium ${
+          active ? 'text-blue-700' : 'text-gray-800'
+        } hover:text-blue-700`}
+      >
+        {item.label}
+        {item.dropdown && <span>▾</span>}
+      </Link>
+
+      {item.dropdown && (
+        <Dropdown
+          label={item.label}
+          isOpen={openDropdown === item.label}
+          items={item.items}
+          refEl={dropdownRef}
+        />
+      )}
+    </li>
+  );
+}
+
+/* ================= DROPDOWN ================= */
+
+function Dropdown({ label, isOpen, items, refEl }: any) {
+  return (
+    <div
+      ref={refEl}
+      className={`fixed top-20 left-0 right-0 bg-white shadow-xl transition ${
+        isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+      }`}
+    >
+      <div className="mx-auto max-w-7xl px-8 py-10 grid grid-cols-3 gap-10">
+        {label === 'Solutions' ? <Solutions /> : <About items={items} />}
+      </div>
+    </div>
+  );
+}
+
+/* ================= SOLUTIONS ================= */
+
+function Solutions() {
+  return (
+    <>
+      <section>
+        <h4 className="font-bold mb-3">Solutions</h4>
+        <ul className="space-y-2">
+          {[
+            'Community Management',
+            'Performance Marketing',
+            'Web Development',
+            'Brand Strategy',
+          ].map((s) => (
+            <li key={s}>
+              <Link href="/Solutions" className="hover:text-blue-700">
+                {s}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section>
+        <h4 className="font-bold mb-3">Products</h4>
+        <ul className="grid grid-cols-2 gap-4">
+          {['FORSA HR', 'FORSA ERP', 'EDUCATUM', 'AIMS ERP'].map((p) => (
+            <li key={p} className="border p-3 rounded text-center">
+              {p}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="bg-gray-100 p-4 rounded">
+        <h4 className="font-bold mb-3">Industry Focus</h4>
+        <ul className="space-y-2">
+          <li>Healthcare</li>
+          <li>Manufacturing</li>
+          <li>Finance</li>
+        </ul>
+      </section>
+    </>
+  );
+}
+
+/* ================= ABOUT ================= */
+
+function About({ items }: any) {
+  return (
+    <>
+      <div>
+        <h3 className="text-xl font-bold">
+          Simplifying IT & Digital Transformation
+        </h3>
+      </div>
+
+      <div>
+        <h4 className="font-bold mb-3">Explore</h4>
+        {items?.map((i: any) => (
+          <Link key={i.label} href={i.href} className="block py-1 hover:text-blue-700">
+            {i.label}
+          </Link>
+        ))}
+      </div>
+
+      <div className="bg-gray-100 p-4 rounded">
+        <h4 className="font-bold mb-3">Clients</h4>
+        <ul className="space-y-2">
+          <li>Johnson & Johnson</li>
+          <li>Hanif Jewellers</li>
+          <li>IVYCMS</li>
+        </ul>
+      </div>
+    </>
+  );
+}
+
+/* ================= MOBILE ================= */
+
+function MobileMenu({ isOpen, pathname }: any) {
+  return (
+    <div
+      className={`md:hidden fixed top-20 inset-x-0 bg-white shadow transition ${
+        isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+      }`}
+    >
+      <div className="p-6 space-y-4">
+        {navigationItems.map((i) => (
+          <Link
+            key={i.label}
+            href={i.href}
+            className={`block font-medium ${
+              pathname === i.href ? 'text-blue-700' : ''
+            }`}
+          >
+            {i.label}
+          </Link>
+        ))}
+
+        <Link
+          href="/contectus"
+          className="block bg-blue-700 text-white py-3 text-center rounded"
+        >
+          Contact Us
+        </Link>
+      </div>
     </div>
   );
 }
